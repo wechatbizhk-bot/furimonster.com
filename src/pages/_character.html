@@ -1,0 +1,96 @@
+<!--FM
+{
+  "file": "characters/CHARACTER.html",
+  "page": "characters",
+  "root": "../",
+  "title": "Character",
+  "desc": "FURI MONSTER character detail."
+}
+-->
+<main id="main" style="--accent:{{THEME_BASE}};--accent-deep:{{THEME_DEEP}};--accent-glow:{{THEME_GLOW}}">
+
+  <section class="char-hero">
+    <div class="wrap">
+      <p class="breadcrumb"><a href="../index.html">{{T:Home|首頁|首页}}</a> / <a href="../characters.html">{{T:Characters|角色|角色}}</a> / {{NAME}}</p>
+      <div class="char-hero-grid">
+        <div class="char-hero-art">{{ART}}</div>
+        <div>
+          <p class="char-hero-role">{{ROLE}}</p>
+          <h1 class="char-hero-name">{{NAME}}</h1>
+          <p class="char-hero-alt">{{NAME_ALT}}</p>
+          <p class="char-hero-tag">“{{TAGLINE}}”</p>
+          <div class="btn-row">
+            <a class="btn btn--primary" href="../furi-lab.html#wallpapers">{{T:Get the wallpaper|取得桌布|获取壁纸}}</a>
+            <a class="btn" href="#identity">{{T:Full profile|完整設定|完整设定}}</a>
+            <a class="btn" href="../stories.html">{{T:Their stories|他的故事|他的故事}}</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="identity">
+    <div class="wrap">
+      <div class="grid grid-2" style="gap:clamp(24px,4vw,48px);align-items:start">
+        <div>
+          <p class="eyebrow">{{T:Identity|角色設定|角色设定}}</p>
+          <h2 class="h2" style="margin-bottom:22px">{{T:Profile|設定|设定}}</h2>
+          {{IDENTITY}}
+        </div>
+        <div>
+          <p class="eyebrow">{{T:Origin|起源|起源}}</p>
+          <h2 class="h2" style="margin-bottom:20px">{{T:Origin story|起源故事|起源故事}}</h2>
+          {{ORIGINS}}
+          <div class="notice" style="margin-top:24px">
+            <strong>{{T:Signature moment|代表時刻|代表时刻}}</strong><br>
+            {{SIGNATURE}}
+          </div>
+          <div style="margin-top:26px">
+            <p class="eyebrow eyebrow--plain">{{T:Palette|色票|色票}}</p>
+            {{CHAR_SWATCHES}}
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="--accent:var(--fur-pink)">
+    <div class="wrap">
+      <p class="eyebrow">{{T:Relationships|角色關係|角色关系}}</p>
+      <h2 class="h2" style="margin-bottom:14px">{{T:Who they are tied to|他和誰綁在一起|他和谁绑在一起}}</h2>
+      <p class="lede" style="margin-bottom:28px">{{T:Best friends, tension, protection. A guardian is defined as much by the others as by themselves.|摯友、衝突、守護。一位守護者被其他人定義的程度，不亞於被自己定義。|挚友、冲突、守护。一位守护者被其他人定义的程度，不亚于被自己定义。}}</p>
+      {{CHAR_RELATIONS}}
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <p class="eyebrow">{{T:Gallery|圖庫|图库}}</p>
+      <h2 class="h2" style="margin-bottom:14px">{{T:Gallery|圖庫|图库}}</h2>
+      <p class="muted" style="margin-bottom:26px">{{T:Gallery — these are the supplied FURI MONSTER character artworks. More expressions and scenes are added as they are approved.|圖庫 —— 以下為官方 FURI MONSTER 角色素材。更多表情與場景會陸續加入。|图库 —— 以下为官方 FURI MONSTER 角色素材。更多表情与场景会陆续加入。|แกลเลอรี — ภาพตัวละคร FURI MONSTER ต้นฉบับ จะเพิ่มสีหน้าท่าทางและฉากเมื่อได้รับการอนุมัติ|ギャラリー — 公式 FURI MONSTER キャラクターアートです。表情やシーンは承認され次第追加します。}}</p>
+      {{CHAR_GALLERY}}
+    </div>
+  </section>
+
+  <section class="section section--tight">
+    <div class="wrap">
+      <p class="eyebrow">{{T:Stories|故事|故事}}</p>
+      <h2 class="h2" style="margin-bottom:24px">{{T:Stories with {{NAME}}|與 {{NAME}} 相關的故事|与 {{NAME}} 相关的故事}}</h2>
+      {{CHAR_STORIES}}
+    </div>
+  </section>
+
+  <section class="section section--tight" id="downloads">
+    <div class="wrap">
+      <p class="eyebrow">{{T:Downloads|下載|下载}}</p>
+      <h2 class="h2" style="margin-bottom:14px">{{T:Take them with you|把他們帶走|把他们带走}}</h2>
+      <p class="muted" style="margin-bottom:22px">{{T:Every file here is exported from the supplied character artwork when the site is built and served as it is — nothing is redrawn in your browser, so what you save is the artwork it says it is.|這裡每一個檔案都是網站建置時由提供的角色原圖輸出、原樣提供 —— 不會在你瀏覽器裡重畫，所以你存到嘅就係它聲稱嘅作品。|这里每一个文件都是网站构建时由提供的角色原图导出、原样提供 —— 不会在你浏览器里重画，所以你存到的就是它声称的作品。|ทุกไฟล์ที่นี่ส่งออกจากงานศิลป์ตัวละครที่ให้มา ตอนสร้างเว็บไซต์ และให้ตามที่เป็น ไม่มีการวาดใหม่ในเบราว์เซอร์ของคุณ สิ่งที่คุณบันทึกคือผลงานอย่างที่มันบอกจริง ๆ|ここにあるファイルは、サイト構築時に提供されたキャラクター原画から書き出し、そのまま配信しています。ブラウザで描き直すことはないので、保存されるのは書いてあるとおりのアートです。}}</p>
+      {{CHAR_DOWNLOADS}}
+    </div>
+  </section>
+
+  <section class="section section--tight">
+    <div class="wrap">{{CHAR_NAV}}</div>
+  </section>
+
+</main>

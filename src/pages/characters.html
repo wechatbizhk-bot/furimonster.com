@@ -1,0 +1,45 @@
+<!--FM
+{
+  "file": "characters.html",
+  "page": "characters",
+  "root": "",
+  "title": "Characters — Six Guardians",
+  "desc": "Meet the six FURI MONSTER guardians: Furi Prince, Pinki, Winggo, Fluffu, Boxo and Bubi. Powers, personalities, fears and the relationships between them.",
+  "canonical": "characters.html"
+}
+-->
+<main id="main">
+
+  <section class="page-head" style="--accent:var(--fur-gold)">
+    <div class="wrap">
+      <p class="breadcrumb"><a href="index.html">{{T:Home|首頁|首页}}</a> / {{T:Characters|角色|角色}}</p>
+      <p class="eyebrow">{{T:Characters|角色|角色}}</p>
+      <h1 class="display balance">{{T:Six guardians|六位守護者|六位守护者}}</h1>
+      <p class="lede" style="margin-top:22px">{{T:Each of them carries one thing that could not be replaced. Each of them has a different way of failing at it. Every guardian has a full page — this is the index.|他們每個人都帶著一樣無法被取代的東西，也各自用不同的方式在這件事上失手。每位守護者都有完整的一頁 —— 這裡是索引。|他们每个人都带着一样无法被取代的东西，也各自用不同的方式在这件事上失手。每位守护者都有完整的一页 —— 这里是索引。}}</p>
+    </div>
+  </section>
+
+  <section class="section section--tight">
+    <div class="wrap">{{CHARACTER_CARDS}}</div>
+  </section>
+
+  <section class="section" style="--accent:var(--fur-pink)">
+    <div class="wrap">
+      <p class="eyebrow">{{T:Relationship Map|角色關係圖|角色关系图}}</p>
+      <h2 class="h2" style="margin-bottom:12px">{{T:They are not six separate posters|他們不是六張獨立的海報|他们不是六张独立的海报}}</h2>
+      <p class="lede" style="margin-bottom:30px">{{T:Friendships, tension, protection and dependency. Tap or select a guardian to see who they are tied to.|友誼、衝突、守護與依賴。點選或選擇一位守護者，看看他和誰綁在一起。|友谊、冲突、守护与依赖。点选或选择一位守护者，看看他和谁绑在一起。}}</p>
+      {{RELATION_MAP}}
+    </div>
+  </section>
+
+  <section class="section section--tight" style="--accent:var(--neon-mint)">
+    <div class="wrap">
+      <h2 class="h3" style="margin-bottom:16px">{{T:Which one are you?|你是哪一個？|你是哪一个？}}</h2>
+      <p class="muted" style="margin-bottom:22px">{{T:Eight questions, no wrong answers, one guardian.|八個問題，沒有錯誤答案，一位守護者。|八个问题，没有错误答案，一位守护者。}}</p>
+      <div id="quiz" style="--accent:var(--fur-gold)">
+        <div class="card"><div id="quiz-stage"></div></div>
+      </div>
+    </div>
+  </section>
+
+</main>

@@ -1,0 +1,26 @@
+# https://furimonster.com
+User-agent: *
+Allow: /
+
+# Build-time only — these are not part of the published site.
+Disallow: /src/
+Disallow: /tools/
+Disallow: /README.md
+
+# Answer engines are welcome to read the published pages.
+User-agent: GPTBot
+Allow: /
+User-agent: OAI-SearchBot
+Allow: /
+User-agent: ClaudeBot
+Allow: /
+User-agent: Claude-Web
+Allow: /
+User-agent: PerplexityBot
+Allow: /
+User-agent: Google-Extended
+Allow: /
+User-agent: CCBot
+Allow: /
+
+Sitemap: https://furimonster.com/sitemap.xml

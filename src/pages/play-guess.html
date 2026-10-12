@@ -1,0 +1,126 @@
+<!--FM
+{
+  "file": "play/guess.html",
+  "page": "play",
+  "root": "../",
+  "title": "Guess the Guardian",
+  "desc": "Guess the Guardian — ten rounds, one blurred piece of official FURI MONSTER artwork each time. Answer early for more points. Free, no login, works on a phone.",
+  "canonical": "play/guess.html"
+}
+-->
+<main id="main">
+
+  <section class="page-head" style="--accent:var(--neon-mint)">
+    <div class="wrap">
+      <p class="breadcrumb"><a href="{{ROOT}}index.html">{{T:Home|首頁|首页|หน้าแรก|ホーム}}</a> / <a href="{{ROOT}}play.html">{{T:Play|玩|玩|เล่น|プレイ}}</a> / {{T:Guess the Guardian|猜守護者|猜守护者|ทายผู้พิทักษ์|守護者を当てる}}</p>
+      <p class="eyebrow">{{T:Game 02|遊戲 02|游戏 02|เกม 02|ゲーム 02}}</p>
+      <h1 class="display balance">{{T:Guess the Guardian|猜守護者|猜守护者|ทายผู้พิทักษ์|守護者を当てる}}</h1>
+      <p class="lede" style="margin-top:22px">{{T:Ten rounds. Each one shows one piece of the real official artwork, starting so blurred it is almost impossible and clearing as the seconds pass. Name the guardian early and you score more — wait until it is sharp and the round is still worth something, just less.|十個回合。每一回都出示一張真正的官方角色圖，開始時模糊到幾乎看不見，隨住秒數慢慢清晰。越早講出守護者的名字就越高分；等到完全清晰才答，仍然有分，只是少一點。|十个回合。每一回都出示一张真正的官方角色图，开始时模糊到几乎看不见，随着秒数慢慢清晰。越早说出守护者的名字就越高分；等到完全清晰才答，仍然有分，只是少一点。|สิ้นรอบ ทุกรอบจะโชว์ภาพทางการจริงหนึ่งภาพ เริ่มจากเบลอจนแทบมองไม่เห็น แล้วค่อยชัดขึ้นตามเวลา ทายชื่อผู้พิทักษ์เร็วได้คะแนนมากกว่า รอจนชัดก็ยังได้คะแนน แค่ลดลง|全10ラウンド。毎回、本物の公式アートが1枚、ほとんど見えないほどぼやけた状態から始まり、秒数とともに鮮明になります。早く名前を当てるほど高得点。鮮明になるまで待っても得点は入りますが、少なくなります。}}</p>
+    </div>
+  </section>
+
+  <section class="section section--tight">
+    <div class="wrap">
+      {{GAME_ART}}
+
+      <div class="gg" id="gg">
+
+        <!-- start ------------------------------------------------------- -->
+        <div class="gg-panel gg-panel--start" id="ggStart">
+          <p class="eyebrow">{{T:How to play|玩法|玩法|วิธีเล่น|遊び方}}</p>
+          <h2 class="h2" style="margin-bottom:20px">{{T:Ten rounds, one blurred guardian each|十個回合，每回一位模糊的守護者|十个回合，每回一位模糊的守护者|สิบรอบ รอบละหนึ่งผู้พิทักษ์ที่เบลอ|10ラウンド、毎回ぼやけた守護者が1人}}</h2>
+          <ol class="gg-rules">
+            <li>{{T:The artwork starts almost impossible to read and clears over about nine seconds. That is the whole clock — there is no timer counting down at you.|角色圖開始時幾乎看不清，大約九秒內會慢慢清晰。這就是全部的時間機制 —— 沒有倒數計時器在催你。|角色图开始时几乎看不清，大约九秒内会慢慢清晰。这就是全部的时间机制 —— 没有倒计时器在催你。|ภาพเริ่มจากแทบอ่านไม่ออก แล้วชัดขึ้นภายในประมาณเก้าวินาที นั่นคือเวลาทั้งหมด ไม่มีตัวนับถอยหลังกดดัน|アートはほとんど読めない状態から約9秒かけて鮮明になります。時計はこれだけ。カウントダウンに急かされることはありません。}}</li>
+            <li>{{T:Four names, one guess. A wrong guess ends the round with nothing, so guessing wildly costs you.|四個名字，一次機會。猜錯就該回合零分，所以亂猜是有代價的。|四个名字，一次机会。猜错就该回合零分，所以乱猜是有代价的。|สี่ชื่อ ทายได้ครั้งเดียว ทายผิดรอบนั้นจบด้วยศูนย์ ดังนั้นการเดาสุ่มมีราคา|名前は4つ、解答は1回。外すとそのラウンドは0点なので、当てずっぽうには代償があります。}}</li>
+            <li>{{T:Every correct answer in a row adds a bonus, up to five in a row. Ten correct answers scores 1,250 at most.|連續答對會加獎金，最多連五回。十回全對最高可得 1,250 分。|连续答对会加奖金，最多连五回。十回全对最高可得 1,250 分。|ตอบถูกติดกันได้โบนัส สูงสุดห้ารอบติด ตอบถูกทั้งสิบได้สูงสุด 1,250 คะแนน|連続正解にはボーナス、最大5連続。10問全問正解で最大1,250点です。}}</li>
+            <li>{{T:All ten rounds use the real official art of the six guardians — three expressions each. Nothing here is a stand-in drawing.|全部十個回合都用六位守護者真正的官方圖 —— 每人三種表情。這裡沒有任何替代插圖。|全部十个回合都用六位守护者真正的官方图 —— 每人三种表情。这里没有任何替代插图。|ทั้งสิบรอบใช้ภาพทางการจริงของผู้พิทักษ์ทั้งหก — คนละสามสีหน้า ไม่มีภาพแทนใด ๆ ที่นี่|10ラウンドすべて、6人の守護者の本物の公式アート（各3表情）を使用。代わりのイラストは一切ありません。}}</li>
+            <li>{{T:This is a looking game, and there is no non-visual version of it yet. It is described in words here so nobody is left guessing what it is.|這是一個用眼睛看的遊戲，暫時沒有非視覺版本。這裡用文字說明，是不想有人不知道它在做什麼。|这是一个用眼睛看的游戏，暂时没有非视觉版本。这里用文字说明，是不想有人不知道它在做什么。|นี่เป็นเกมที่ต้องดู ยังไม่มีเวอร์ชันที่ไม่ใช้ภาพ คำอธิบายนี้มีไว้เพื่อไม่ให้ใครต้องเดาว่ามันคืออะไร|これは“見る”ゲームで、非視覚版はまだありません。何のゲームか分からない人が出ないよう、ここに言葉で書いています。}}</li>
+          </ol>
+          <div class="gg-cta">
+            <button class="btn btn--primary btn--lg" type="button" id="ggStartBtn">{{T:Start playing|開始遊戲|开始游戏|เริ่มเล่น|プレイ開始}}</button>
+            <p class="mono tiny muted" style="margin:0">{{T:On a keyboard you can also press 1–4|用鍵盤的話，也可以按 1–4|用键盘的话，也可以按 1–4|ถ้าใช้คีย์บอร์ด กด 1–4 ได้|キーボードなら 1–4 でも選べます}}</p>
+          </div>
+        </div>
+
+        <!-- board ------------------------------------------------------- -->
+        <div class="gg-panel" id="ggBoard" hidden>
+          <div class="gg-hud">
+            <div class="gg-hud-cell">
+              <span class="gg-hud-k">{{T:Round|回合|回合|รอบ|ラウンド}}</span>
+              <span class="gg-hud-v"><span id="ggRound">0</span><span class="gg-hud-of">/10</span></span>
+            </div>
+            <div class="gg-hud-cell">
+              <span class="gg-hud-k">{{T:Score|分數|分数|คะแนน|スコア}}</span>
+              <span class="gg-hud-v" id="ggScore">0</span>
+            </div>
+            <div class="gg-hud-cell">
+              <span class="gg-hud-k">{{T:Streak|連勝|连胜|สตรีค|連続正解}}</span>
+              <span class="gg-hud-v" id="ggStreak">0</span>
+            </div>
+            <div class="gg-hud-cell">
+              <span class="gg-hud-k">{{T:Best|最佳|最佳|สูงสุด|ベスト}}</span>
+              <span class="gg-hud-v" id="ggBest">0</span>
+            </div>
+          </div>
+
+          <div class="gg-stage" id="ggStage">
+            <div class="gg-frame">
+              <img class="gg-img" id="ggImg" src="{{ROOT}}assets/img/art/furi-prince.webp" alt="" aria-hidden="true" decoding="async" width="800" height="800">
+              <span class="gg-answer" id="ggAnswer" hidden></span>
+            </div>
+            <div class="gg-track" aria-hidden="true"><span class="gg-bar" id="ggBar"></span></div>
+            <p class="gg-readout">
+              <span class="gg-points" id="ggPoints">100</span>
+              <span class="gg-points-k">{{T:Points left this round|本回剩餘分數|本回剩余分数|คะแนนที่เหลือในรอบนี้|このラウンドの残り点}}</span>
+              <span class="gg-tier" id="ggTier">{{T:Almost impossible|幾乎看不見|几乎看不见|แทบมองไม่เห็น|ほぼ見えません}}</span>
+            </p>
+          </div>
+
+          <p class="gg-q">{{T:Which guardian is it?|這是哪一位守護者？|这是哪一位守护者？|นี่คือผู้พิทักษ์คนไหน?|どの守護者でしょう？}}</p>
+          <div class="gg-options" id="ggOptions"></div>
+          <p class="gg-msg" id="ggMsg" role="status" aria-live="polite"></p>
+          <div class="gg-actions">
+            <button class="btn btn--primary" type="button" id="ggNext" hidden>{{T:Next|下一個|下一个|ต่อไป|次へ}}</button>
+            <button class="btn btn--ghost btn--sm" type="button" id="ggQuit">{{T:End this run|結束這一輪|结束这一轮|จบรอบนี้|このラウンドを終える}}</button>
+          </div>
+        </div>
+
+        <!-- end --------------------------------------------------------- -->
+        <div class="gg-panel gg-panel--end" id="ggEnd" hidden>
+          <p class="eyebrow">{{T:Final score|總分|总分|คะแนนรวม|合計スコア}}</p>
+          <p class="gg-final" id="ggEndScore">0</p>
+          <div class="gg-final-row">
+            <div class="gg-final-cell">
+              <span class="gg-hud-k">{{T:Correct answers|答對回數|答对回数|ตอบถูก|正解数}}</span>
+              <span class="gg-hud-v" id="ggEndAcc">0 / 10</span>
+            </div>
+            <div class="gg-final-cell">
+              <span class="gg-hud-k">{{T:Best|最佳|最佳|สูงสุด|ベスト}}</span>
+              <span class="gg-hud-v" id="ggEndBest">—</span>
+            </div>
+          </div>
+          <div class="btn-row" style="justify-content:center;margin-top:26px">
+            <button class="btn btn--primary" type="button" id="ggAgainBtn">{{T:Play again|再玩一次|再玩一次|เล่นอีกครั้ง|もう一度}}</button>
+            <a class="btn" href="{{ROOT}}play.html">{{T:All games|全部遊戲|全部游戏|เกมทั้งหมด|すべてのゲーム}}</a>
+            <a class="btn" href="{{ROOT}}characters.html">{{T:Meet the six|認識六位守護者|认识六位守护者|พบผู้พิทักษ์ทั้งหก|六人に会う}}</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="--accent:var(--fur-gold)">
+    <div class="wrap">
+      <p class="eyebrow">{{T:Why a guessing game|為何做猜謎遊戲|为何做猜谜游戏|ทำไมถึงเป็นเกมทาย|なぜ「当てる」ゲームか}}</p>
+      <h2 class="h2" style="margin-bottom:14px">{{T:The six have to be learnable by silhouette|六位必須單靠輪廓就認得出來|六位必须单靠轮廓就认得出来|ทั้งหกต้องจำได้จากรูปทรง|6人はシルエットで覚えられる必要がある}}</h2>
+      <p class="lede" style="max-width:70ch">{{T:A character brand lives or dies on whether you can tell who it is from a blurry photo, a tiny sticker, or a shape on a vending machine. This game is that test, turned into something to play: if a guardian is hard to name at this size, the design still has work to do — and we would rather find that out here than on a shelf.|角色品牌成敗，就看你能不能從一張模糊的照片、一張小貼圖，或販賣機上的一個形狀認出它是誰。這個遊戲就是把那個測試變成可以玩的東西：如果一位守護者在這個大小下難以辨認，代表設計還有工作要做 —— 而我們寧願在這裡發現，而不是在貨架上。|角色品牌成败，就看你能不能从一张模糊的照片、一张小贴图，或贩卖机上的一个形状认出它是谁。这个游戏就是把那个测试变成可以玩的东西：如果一位守护者在这个大小下难以辨认，代表设计还有工作要做 —— 而我们宁愿在这里发现，而不是在货架上。|แบรนด์ตัวละครจะอยู่หรือไป ขึ้นกับว่าคุณบอกได้ไหมว่ามันคือใครจากภาพเบลอ ๆ สติกเกอร์เล็ก ๆ หรือรูปทรงบนตู้ขายของ เกมนี้คือแบบทดสอบนั้นที่ทำให้เล่นได้ ถ้าผู้พิทักษ์คนไหนทายยากในขนาดนี้ แปลว่างานออกแบบยังต้องทำต่อ และเราเลือกจะรู้ตรงนี้ ดีกว่ารู้บนชั้นวางสินค้า|キャラクターブランドは、ぼやけた写真、小さなステッカー、自動販売機のシルエットから「誰か」が分かるかで決まります。このゲームはそのテストを遊べる形にしたものです。この大きさで名前が出てこない守護者がいれば、デザインはまだ作業が必要。棚の上で気づくより、ここで気づきたい。}}</p>
+      {{CHARACTER_STRIP}}
+      <div class="btn-row" style="margin-top:30px">
+        <a class="btn btn--primary" href="{{ROOT}}play/claw.html">{{T:Play the Claw Machine|玩夾公仔機|玩抓娃娃机|เล่นตู้คีบ|クレーンゲームで遊ぶ}}</a>
+        <a class="btn" href="{{ROOT}}stories.html">{{T:Read the stories|讀故事|读故事|อ่านเรื่องราว|物語を読む}}</a>
+      </div>
+    </div>
+  </section>
+
+</main>

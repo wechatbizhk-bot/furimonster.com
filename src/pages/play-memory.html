@@ -1,0 +1,110 @@
+<!--FM
+{
+  "file": "play/memory.html",
+  "page": "play",
+  "root": "../",
+  "title": "Emotion Match",
+  "desc": "Emotion Match — eighteen official expression cards, six guardians with three faces each. Turn two at a time and pair them. Free, no login, works on a phone.",
+  "canonical": "play/memory.html"
+}
+-->
+<main id="main">
+
+  <section class="page-head" style="--accent:var(--fur-purple)">
+    <div class="wrap">
+      <p class="breadcrumb"><a href="{{ROOT}}index.html">{{T:Home|首頁|首页|หน้าแรก|ホーム}}</a> / <a href="{{ROOT}}play.html">{{T:Play|玩|玩|เล่น|プレイ}}</a> / {{T:Emotion Match|情緒記憶|情绪记忆|เกมความจำอารมณ์|感情メモリー}}</p>
+      <p class="eyebrow">{{T:Game 04|遊戲 04|游戏 04|เกม 04|ゲーム 04}}</p>
+      <h1 class="display balance">{{T:Emotion Match|情緒記憶|情绪记忆|เกมความจำอารมณ์|感情メモリー}}</h1>
+      <p class="lede" style="margin-top:22px">{{T:Eighteen faces, face down. Six guardians with three expressions each, and every one of them appears exactly twice. Turn two cards at a time and remember where each face is hiding. Finding a pair is worth more than the mistakes cost, so a slow, sure run beats a fast, guessing one.|十八張臉，蓋住。六位守護者各有三種表情，每一張都出現兩次。每次翻兩張，記住每張臉躲喺邊。配對成功得到嘅分，比猜錯失去嘅多，所以慢慢嚟、穩陣啲，會比亂衝高分。|十八张脸，盖住。六位守护者各有三种表情，每一张都出现两次。每次翻两张，记住每张脸躲在哪里。配对成功得到的分数，比猜错失去的多，所以慢慢来、稳一点，会比乱冲高分。|สิบแปดหน้า คว่ำไว้ ผู้พิทักษ์หกคน คนละสามสีหน้า และแต่ละหน้าปรากฏสองครั้งพอดี เปิดครั้งละสองใบแล้วจำว่าแต่ละหน้าซ่อนอยู่ที่ไหน จับคู่ได้คะแนนมากกว่าที่พลาดเสีย ดังนั้นเล่นช้า ๆ มั่นใจ ดีกว่าเดาเร็ว|18の顔、伏せてあります。6人の守護者にそれぞれ3つの表情、どの顔もちょうど2回ずつ。2枚ずつめくって、どの顔がどこに隠れているか覚えてください。そろえるほうが、間違えるより価値があります。急いで当てずっぽうを言うより、ゆっくり確実に。}}</p>
+    </div>
+  </section>
+
+  <section class="section section--tight">
+    <div class="wrap">
+      {{GAME_ART}}
+
+      <div class="gg" id="me">
+
+        <!-- start ------------------------------------------------------- -->
+        <div class="gg-panel" id="meStart">
+          <p class="eyebrow">{{T:How to play|玩法|玩法|วิธีเล่น|遊び方}}</p>
+          <h2 class="h2" style="margin-bottom:20px">{{T:Thirty-six cards, eighteen pairs|三十六張卡，十八對|三十六张卡，十八对|สามสิบหกใบ สิบแปดคู่|36枚、18組}}</h2>
+          <ol class="gg-rules">
+            <li>{{T:Turn two cards. If the two faces match, they stay up. If they do not, both turn back over and you lose a little score.|翻兩張卡。如果兩張臉一樣，就會保持翻開。如果不一樣，兩張會翻返轉，而你會扣少少分。|翻两张卡。如果两张脸一样，就会保持翻开。如果不一样，两张会翻回去，而你会扣一点分。|เปิดสองใบ ถ้าหน้าตรงกันจะค้างไว้ ถ้าไม่ตรง ทั้งคู่จะคว่ำกลับและคุณเสียคะแนนเล็กน้อย|2枚めくります。同じ顔ならそのまま表向き。ちがえば両方もどり、少しスコアを失います。}}</li>
+            <li>{{T:Every one of the eighteen official expressions appears exactly twice, so there is no trick and no card without a partner.|十八種官方表情每一種都出現兩次，所以冇陷阱，亦冇一張卡係冇拍檔嘅。|十八种官方表情每一种都出现两次，所以没有陷阱，也没有一张卡是没有搭档的。|สีหน้าทางการทั้งสิบแปดแบบปรากฏแบบละสองครั้ง จึงไม่มีกับดักและไม่มีใบใดที่ไร้คู่|18種類の公式表情はそれぞれちょうど2回ずつ。仕掛けも、相方のいないカードもありません。}}</li>
+            <li>{{T:On a keyboard, the arrow keys move between cards and Space or Enter turns one over.|用鍵盤時，方向鍵喺卡與卡之間移動，空白鍵或 Enter 翻開。|用键盘时，方向键在卡与卡之间移动，空格键或 Enter 翻开。|ถ้าใช้คีย์บอร์ด ลูกศรเลื่อนระหว่างการ์ด และ Space หรือ Enter เปิดการ์ด|キーボードでは、矢印キーでカード間を移動し、SpaceかEnterでめくります。}}</li>
+            <li>{{T:All eighteen faces are the real official artwork. Nothing here is a redrawn or stand-in expression.|十八張臉全部都係真實官方圖。這裡冇任何一張係重畫或者替代嘅表情。|十八张脸全部都是真实官方图。这里没有任何一张是重画或替代的表情。|ทั้งสิบแปดหน้าเป็นภาพทางการจริง ไม่มีหน้าใดถูกวาดใหม่หรือใช้ตัวแทน|18の顔はすべて本物の公式アート。描き直しも、代わりの表情もありません。}}</li>
+          </ol>
+          <div class="gg-cta">
+            <button class="btn btn--primary btn--lg" type="button" id="meStartBtn">{{T:Start playing|開始遊戲|开始游戏|เริ่มเล่น|プレイ開始}}</button>
+          </div>
+        </div>
+
+        <!-- board ------------------------------------------------------- -->
+        <div class="gg-panel" id="meBoardWrap" hidden>
+          <div class="gg-hud">
+            <div class="gg-hud-cell">
+              <span class="gg-hud-k">{{T:Pairs found|已配對|已配对|จับคู่แล้ว|そろった組}}</span>
+              <span class="gg-hud-v"><span id="mePairs">0</span><span class="gg-hud-of">/18</span></span>
+            </div>
+            <div class="gg-hud-cell">
+              <span class="gg-hud-k">{{T:Turns|翻牌次數|翻牌次数|จำนวนเปิด|めくった回数}}</span>
+              <span class="gg-hud-v" id="meTurns">0</span>
+            </div>
+            <div class="gg-hud-cell">
+              <span class="gg-hud-k">{{T:Score|分數|分数|คะแนน|スコア}}</span>
+              <span class="gg-hud-v" id="meScore">0</span>
+            </div>
+            <div class="gg-hud-cell">
+              <span class="gg-hud-k">{{T:Best|最佳|最佳|สูงสุด|ベスト}}</span>
+              <span class="gg-hud-v" id="meBest">0</span>
+            </div>
+          </div>
+
+          <div class="me-board" id="meGrid" role="grid"
+               aria-label="{{T:Emotion Match board, six columns by six rows|情緒記憶棋盤，六欄六列|情绪记忆棋盘，六栏六列|กระดานเกมความจำอารมณ์ หกคอลัมน์หกแถว|感情メモリー盤面、6列×6行}}"></div>
+
+          <p class="gg-msg" id="meMsg" role="status" aria-live="polite"></p>
+          <div class="gg-actions">
+            <button class="btn btn--ghost btn--sm" type="button" id="meEnd">{{T:End this run|結束這一輪|结束这一轮|จบรอบนี้|このラウンドを終える}}</button>
+          </div>
+        </div>
+
+        <!-- end --------------------------------------------------------- -->
+        <div class="gg-panel" id="meEndPanel" hidden>
+          <p class="eyebrow">{{T:Final score|總分|总分|คะแนนรวม|合計スコア}}</p>
+          <p class="gg-final" id="meEndScore">0</p>
+          <div class="gg-final-row">
+            <div class="gg-final-cell">
+              <span class="gg-hud-k">{{T:Turns taken|翻牌次數|翻牌次数|จำนวนเปิด|めくった回数}}</span>
+              <span class="gg-hud-v" id="meEndTurns">0</span>
+            </div>
+            <div class="gg-final-cell">
+              <span class="gg-hud-k">{{T:Best|最佳|最佳|สูงสุด|ベスト}}</span>
+              <span class="gg-hud-v" id="meEndBest">—</span>
+            </div>
+          </div>
+          <div class="btn-row" style="justify-content:center;margin-top:26px">
+            <button class="btn btn--primary" type="button" id="meAgain">{{T:Play again|再玩一次|再玩一次|เล่นอีกครั้ง|もう一度}}</button>
+            <a class="btn" href="{{ROOT}}play.html">{{T:All games|全部遊戲|全部游戏|เกมทั้งหมด|すべてのゲーム}}</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="--accent:var(--fur-gold)">
+    <div class="wrap">
+      <p class="eyebrow">{{T:Why a memory game|為何做記憶遊戲|为何做记忆游戏|ทำไมถึงเป็นเกมความจำ|なぜ記憶ゲームか}}</p>
+      <h2 class="h2" style="margin-bottom:14px">{{T:You learn a face before you learn its name|你會先記住一張臉，然後才記住它的名字|你会先记住一张脸，然后才记住它的名字|คุณจำหน้าได้ก่อนจะจำชื่อของมัน|名前より先に、顔を覚える}}</h2>
+      <p class="lede" style="max-width:70ch">{{T:The six guardians each carry a different emotion, and each of them has three faces. Pairing the same face twice is a small act of attention — you are learning which face belongs to whom without being told. That is the order this IP is meant to be met in. Full pages for all six are one link away when you want the names.|六位守護者各自背負一種情緒，每人有三張臉。把同一張臉配對兩次，係一個小小嘅專注練習 —— 你會喺冇人教你嘅情況下，自己記住邊張臉屬於邊個。呢個就係呢個 IP 想你認識它嘅次序。想要名字，六位的完整頁面只差一個連結。|六位守护者各自背负一种情绪，每人有三张脸。把同一张脸配对两次，是一个小小的专注练习 —— 你会在没人教你的情况下，自己记住哪张脸属于谁。这就是这个 IP 想让你认识它的次序。想要名字，六位的完整页面只差一个链接。|ผู้พิทักษ์ทั้งหกต่างแบกอารมณ์คนละแบบ และแต่ละคนมีสามหน้า การจับคู่หน้าตัวเองสองครั้งคือการฝึกใส่ใจเล็ก ๆ — คุณกำลังเรียนรู้ว่าใครหน้าตาเป็นอย่างไรโดยไม่มีใครบอก นั่นคือลำดับที่ IP นี้อยากให้รู้จัก หน้าที่เต็มของทั้งหกอยู่ห่างแค่ลิงก์เดียว เมื่อคุณอยากรู้ชื่อ|6人の守護者はそれぞれ違う感情を抱え、それぞれに3つの顔があります。同じ顔を2回そろえるのは、小さな注意力の練習 — 誰の顔かを、教わらずに覚えていく。このIPと出会う順番は、そういうふうに作っています。名前を知りたくなったら、6人それぞれのページはリンク1つ先です。}}</p>
+      {{CHARACTER_STRIP}}
+      <div class="btn-row" style="margin-top:30px">
+        <a class="btn btn--primary" href="{{ROOT}}play/match.html">{{T:FURI MATCH|FURI 三消|FURI 三消|FURI แมตช์|FURI マッチ}}</a>
+        <a class="btn" href="{{ROOT}}play/guess.html">{{T:Guess the Guardian|猜守護者|猜守护者|ทายผู้พิทักษ์|守護者を当てる}}</a>
+      </div>
+    </div>
+  </section>
+
+</main>

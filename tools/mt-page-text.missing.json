@@ -1,0 +1,9 @@
+{
+  "_note": "Outstanding Thai/Japanese strings, grouped by the page that first needs them. Fill th and ja, then merge the \"runs\" object into tools/mt-page-text.json. A string shared by several pages is listed under the first page that uses it.",
+  "_counts": {
+    "distinct": 0,
+    "pages": 0
+  },
+  "byPage": {},
+  "runs": {}
+}

@@ -1,0 +1,82 @@
+<!--FM
+{
+  "file": "stories.html",
+  "page": "stories",
+  "root": "",
+  "title": "Stories — The FURI Universe",
+  "desc": "Original stories, mini animations, comics and Furi Daily. Six episodes written, animation and comics in production.",
+  "canonical": "stories.html"
+}
+-->
+<main id="main">
+
+  <section class="page-head" style="--accent:var(--fur-pink)">
+    <div class="wrap">
+      <p class="breadcrumb"><a href="index.html">{{T:Home|首頁|首页}}</a> / {{T:Stories|故事|故事}}</p>
+      <p class="eyebrow">{{T:Stories|故事|故事}}</p>
+      <h1 class="display balance">{{T:The FURI Universe|FURI 宇宙|FURI 宇宙}}</h1>
+      <p class="lede" style="margin-top:22px">{{T:Six episodes are written. Animation and comics are in production. Nothing below is released yet — every card says so, because we would rather be honest than look busy.|六集故事已經寫好。動畫與漫畫正在製作中。以下沒有任何內容已發佈 —— 每一張卡都如此標示，因為我們寧可誠實，也不想看起來很忙。|六集故事已经写好。动画与漫画正在制作中。以下没有任何内容已发布 —— 每一张卡都如此标示，因为我们宁可诚实，也不想看起来很忙。}}</p>
+    </div>
+  </section>
+
+  <section class="section section--tight">
+    <div class="wrap">
+      <div class="notice" style="margin-bottom:32px">
+        {{T:Story type is by format: mini animation, comic, original story, Furi Daily, exhibition story. Every episode carries the guardians it belongs to, and the character pages link back here.|故事類型依形式區分：短動畫、漫畫、原創故事、FURI 日常、展會故事。每一集都標示所屬的守護者，角色頁也會連回這裡。|故事类型依形式区分：短动画、漫画、原创故事、FURI 日常、展会故事。每一集都标示所属的守护者，角色页也会连回这里。}}
+      </div>
+      {{STORY_CARDS}}
+    </div>
+  </section>
+
+  <!-- THE COMIC LIBRARY: 120 four-panel scripts, 20 per guardian -->
+  <section class="section" id="comics" style="--accent:var(--fur-gold)">
+    <div class="wrap">
+      <p class="eyebrow">{{T:Comics|漫畫|漫画|การ์ตูน|コミック}}</p>
+      <h2 class="h2" style="margin-bottom:12px">{{T:The four-panel library|四格漫畫庫|四格漫画库|คลังการ์ตูนสี่ช่อง|四コマライブラリ}}</h2>
+      <p class="lede" style="margin-bottom:14px">{{T:One hundred and twenty four-panel stories — twenty for each guardian — about work, friendship, burnout, being different, and the small things that get you through a week. Every one is written; the artwork is still in production, so each panel shows its stage direction and dialogue.|一百二十篇四格故事 —— 每位守護者二十篇 —— 關於工作、友情、倦怠、與眾不同，以及撐過一個星期的小事。全部已經寫好；插圖仍在製作中，所以每一格顯示場景指示與對白。|一百二十篇四格故事 —— 每位守护者二十篇 —— 关于工作、友情、倦怠、与众不同，以及撑过一个星期的小事。全部已经写好；插图仍在制作中，所以每一格显示场景指示与对白。|การ์ตูนสี่ช่อง 120 เรื่อง ยี่สิบเรื่องต่อผู้พิทักษ์หนึ่งตน เกี่ยวกับงาน มิตรภาพ ภาวะหมดไฟ ความต่าง และเรื่องเล็ก ๆ ที่ทำให้ผ่านสัปดาห์ไปได้ เขียนครบแล้ว ภาพประกอบยังผลิตอยู่ แต่ละช่องจึงแสดงคำบรรยายฉากและบทสนทนา|四コマ120話、守護者ひとりにつき20話。仕事、友情、燃え尽き、人と違うこと、そして一週間を乗り切る小さなことについて。脚本は完成、作画は制作中のため各コマはト書きとセリフを表示します。}}</p>
+      <div class="notice" style="margin-bottom:24px">
+        <strong>{{T:Machine translated.|機器翻譯。|机器翻译。|แปลด้วยเครื่อง|機械翻訳です。}}</strong>
+        {{T:The site's own pages are written in five languages by hand. These 120 comic scripts are translated automatically, so the wording may be stiff in places — the Chinese original is the reference version.|網站其他頁面嘅五語係人手撰寫。呢 120 篇漫畫腳本係自動翻譯，所以部分用詞可能生硬 —— 以中文原文為準。|网站其他页面的五语为人工撰写。这 120 篇漫画脚本为自动翻译，所以部分措辞可能生硬 —— 以中文原文为准。|หน้าอื่นของเว็บเขียนห้าภาษาด้วยมือ บทการ์ตูน 120 เรื่องนี้แปลอัตโนมัติ ถ้อยคำอาจแข็งในบางจุด ต้นฉบับภาษาจีนเป็นฉบับอ้างอิง|サイト本体の5言語は人手で書いています。この120話は自動翻訳のため、言葉が硬い箇所があります。中国語原文が基準です。}}
+      </div>
+      {{COMIC_FILTER}}
+      <p class="comic-count" id="comicCount"></p>
+      <div id="comic-grid">{{COMIC_GRID}}</div>
+      <p class="muted small" id="comic-empty" hidden>{{T:No comics match that filter.|沒有符合篩選條件的漫畫。|没有符合筛选条件的漫画。|ไม่มีการ์ตูนที่ตรงกับตัวกรอง|条件に合う漫画がありません。}}</p>
+    </div>
+  </section>
+
+  <!-- THE FINISHED COMICS: 45 drawn four-panel comics. Dialogue is baked into
+       the artwork in Traditional Chinese, so this gallery is labelled as
+       Chinese-only rather than pretending it is part of the five-language set. -->
+  <section class="section" id="finished-comics" style="--accent:var(--neon-violet)">
+    <div class="wrap">
+      <p class="eyebrow">{{T:Finished comics|完成版漫畫|完成版漫画|การ์ตูนที่วาดเสร็จ|完成コミック}}</p>
+      <h2 class="h2" style="margin-bottom:12px">{{T:Forty-five finished four-panel comics|四十五篇完成版四格漫畫|四十五篇完成版四格漫画|การ์ตูนสี่ช่องที่วาดเสร็จ 45 เรื่อง|完成した四コマ漫画45本}}</h2>
+      <p class="lede" style="margin-bottom:14px">{{T:Drawn, lettered and finished — not scripts. The finished set currently covers the campus arc, which features all six guardians, plus several Furi Prince arcs.|已經畫好、上好字嘅完成品，唔係腳本。目前完成嘅包括六位守護者都有出場嘅校園篇，以及幾個 Furi Prince 篇章。|已经画好、上好字的成品，不是脚本。目前完成的包括六位守护者都有出场的校园篇，以及几个 Furi Prince 篇章。|วาดและใส่คำพูดเสร็จแล้ว ไม่ใช่บท อาร์กที่เสร็จตอนนี้คือ Campus ซึ่งมีผู้พิทักษ์ทั้งหก และอีกหลายอาร์กของ Furi Prince|作画とセリフ入れまで完了した完成品で、脚本ではありません。現在は6人全員が登場するキャンパス編と、Furi Prince の複数の編が完成しています。}}</p>
+      <div class="notice" style="margin-bottom:24px">
+        <strong>{{T:Traditional Chinese only.|只有繁體中文。|只有繁体中文。|มีเฉพาะภาษาจีนตัวเต็ม|繁体字中国語のみ。}}</strong>
+        {{T:The dialogue is drawn into the artwork itself, so these finished comics cannot appear in the site's other four languages.|對白已經畫入圖中，所以呢批完成版漫畫無法以網站其他四種語言呈現。|对白已经画入图中，所以这批完成版漫画无法以网站其他四种语言呈现。|บทสนทนาถูกวาดอยู่ในภาพ จึงแสดงในอีกสี่ภาษาของเว็บไซต์ไม่ได้|セリフが作画に描き込まれているため、サイトの他の4言語では表示できません。}}
+      </div>
+      {{FEATURED_COMICS}}
+    </div>
+  </section>
+
+  <section class="section" style="--accent:var(--neon-violet)">
+    <div class="wrap">
+      <p class="eyebrow">{{T:Furi Daily|FURI 日常|FURI 日常|FURI ประจำวัน|FURI デイリー}}</p>
+      <h2 class="h2" style="margin-bottom:12px">{{T:The guardians off-duty|守護者下班之後|守护者下班之后|ผู้พิทักษ์ในเวลาว่าง|守護者のオフタイム}}</h2>
+      <p class="lede" style="margin-bottom:26px">{{T:School, work, restaurants, commuting, travelling. The light half of the IP, planned as a feed rather than a series.|學校、工作、餐廳、通勤、旅行。IP 的輕盈那一半，規劃成一個動態牆而不是一個系列。|学校、工作、餐厅、通勤、旅行。IP 的轻盈那一半，规划成一个动态墙而不是一个系列。|โรงเรียน งาน ร้านอาหาร การเดินทาง ท่องเที่ยว ครึ่งที่เบาสบายของ IP วางเป็นฟีดมากกว่าซีรีส์|学校、仕事、飲食店、通勤、旅行。IPの軽やかな半分で、シリーズではなくフィードとして構想しています。}}</p>
+      <div class="notice">{{T:Planned for Phase 2. No entries yet.|規劃於第二階段。尚無內容。|规划于第二阶段。尚无内容。|วางแผนไว้ระยะที่ 2 ยังไม่มีเนื้อหา|第2フェーズ予定。まだ記事はありません。}}</div>
+    </div>
+  </section>
+
+  <section class="section section--tight">
+    <div class="wrap center">
+      <div class="btn-row" style="justify-content:center">
+        <a class="btn btn--primary" href="characters.html">{{T:Read the character pages|閱讀角色頁面|阅读角色页面}}</a>
+        <a class="btn" href="furi-planet.html">{{T:The world they live in|他們所居住的世界|他们所居住的世界}}</a>
+      </div>
+    </div>
+  </section>
+
+</main>

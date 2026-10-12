@@ -1,0 +1,53 @@
+<!--FM
+{
+  "file": "stories/COMIC.html",
+  "page": "stories",
+  "root": "../",
+  "title": "Comic",
+  "desc": "A four-panel FURI MONSTER comic."
+}
+-->
+<main id="main" style="--accent:{{THEME}}">
+
+  <section class="page-head" style="--accent:{{THEME}}">
+    <div class="wrap">
+      <p class="breadcrumb"><a href="../index.html">{{T:Home|首頁|首页|หน้าแรก|ホーム}}</a> / <a href="../stories.html">{{T:Stories|故事|故事|เรื่องราว|ストーリー}}</a> / {{TITLE_EN}}</p>
+      <p class="eyebrow">{{CHARACTER_NAME}} &middot; {{COMIC_INDEX}}</p>
+      <h1 class="display balance">{{TITLE}}</h1>
+      <div class="comic-meta">{{COMIC_TAGS}}</div>
+    </div>
+  </section>
+
+  <section class="section section--tight">
+    <div class="wrap">
+      <div class="notice" style="margin-bottom:26px">
+        {{T:These are the written four-panel scripts. The panel illustrations are still in production, so each frame shows the guardian's official character art alongside the stage direction and dialogue.|以下是四格漫畫的文字腳本。插圖仍在製作中，所以每一格暫以該守護者的官方角色素材顯示，旁邊是場景指示與對白。|以下是四格漫画的文字脚本。插图仍在制作中，所以每一格暂以该守护者的官方角色素材显示，旁边是场景指示与对白。|นี่คือบทสี่ช่องฉบับเขียน ภาพประกอบแต่ละช่องยังอยู่ระหว่างผลิต แต่ละกรอบจึงแสดงงานตัวละครต้นฉบับของผู้พิทักษ์ พร้อมคำบรรยายฉากและบทสนทนา|これは四コマの脚本です。各コマの作画は制作中のため、枠には守護者の公式キャラクターアートを表示し、あわせてト書きとセリフを載せています。}}
+      </div>
+      {{COMIC_PANELS}}
+    </div>
+  </section>
+
+  <section class="section section--tight">
+    <div class="wrap">
+      <div class="comic-nav">{{COMIC_NAV}}</div>
+    </div>
+  </section>
+
+  <section class="section section--tight" style="--accent:{{THEME}}">
+    <div class="wrap">
+      <div class="grid grid-2" style="gap:clamp(20px,3vw,44px);align-items:center">
+        <div class="comic-about">
+          <p class="eyebrow">{{T:About this guardian|關於這位守護者|关于这位守护者|เกี่ยวกับผู้พิทักษ์ท่านนี้|この守護者について}}</p>
+          <h2 class="h3" style="margin-bottom:10px">{{CHARACTER_NAME}}</h2>
+          <p class="muted">{{CHARACTER_ROLE}}</p>
+          <div class="btn-row" style="margin-top:16px">
+            <a class="btn btn--sm" href="../characters/{{CHARACTER_SLUG}}.html">{{T:Their full page|完整角色頁|完整角色页|หน้าเต็มของตัวละคร|キャラクター詳細}}</a>
+            <a class="btn btn--sm" href="../stories.html#{{CHARACTER_SLUG}}">{{T:More comics|更多漫畫|更多漫画|การ์ตูนเพิ่มเติม|もっと読む}}</a>
+          </div>
+        </div>
+        <div class="comic-about-art">{{CHARACTER_ART}}</div>
+      </div>
+    </div>
+  </section>
+
+</main>

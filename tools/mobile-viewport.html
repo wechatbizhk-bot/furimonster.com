@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>mobile viewport frames</title>
+<style>
+  body { margin:0; background:#222; display:flex; gap:14px; align-items:flex-start; font:11px monospace; color:#9f9; }
+  figure { margin:0; }
+  figcaption { padding:4px 6px; }
+  iframe { border:1px solid #555; background:#000; display:block; }
+</style>
+</head>
+<body>
+<!--
+  Headless Chrome on Windows refuses to make a window narrower than ~500 CSS px,
+  so a 375px screenshot is really a 500px render cropped. An iframe creates its
+  own viewport at exactly the requested width, so the media queries that matter
+  on a phone (max-width 760) finally evaluate the way they will on the device.
+-->
+<figure>
+  <figcaption>index.html @ 375x1400</figcaption>
+  <iframe src="../index.html" width="375" height="1400" title="home at 375"></iframe>
+</figure>
+<figure>
+  <figcaption>overflow diagnostic @ 375x700</figcaption>
+  <iframe src="../_diag.html" width="375" height="700" title="diag at 375"></iframe>
+</figure>
+<figure>
+  <figcaption>play.html @ 375x900</figcaption>
+  <iframe src="../play.html" width="375" height="900" title="play at 375"></iframe>
+</figure>
+</body>
+</html>

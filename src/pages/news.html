@@ -1,0 +1,61 @@
+<!--FM
+{
+  "file": "news.html",
+  "page": "news",
+  "root": "",
+  "title": "News & Events — Exhibitions, Releases, Media",
+  "desc": "FURI MONSTER news and events: exhibitions, collaborations, media coverage, product releases and behind-the-scenes posts.",
+  "canonical": "news.html"
+}
+-->
+<main id="main">
+
+  <section class="page-head" style="--accent:var(--neon-violet)">
+    <div class="wrap">
+      <p class="breadcrumb"><a href="index.html">{{T:Home|首頁|首页}}</a> / {{T:News & Events|新聞與活動|新闻与活动}}</p>
+      <p class="eyebrow">{{T:News & Events|新聞與活動|新闻与活动}}</p>
+      <h1 class="display balance">{{T:What is happening|正在發生什麼|正在发生什么}}</h1>
+      <p class="lede" style="margin-top:22px">{{T:Exhibitions, collaborations, media, releases and behind-the-scenes notes. One card format, filterable by category and year.|展覽、合作、媒體、發佈與幕後筆記。單一卡片格式，可依類別與年份篩選。|展览、合作、媒体、发布与幕后笔记。单一卡片格式，可依类别与年份筛选。}}</p>
+    </div>
+  </section>
+
+  <section class="section section--tight">
+    <div class="wrap">
+      <div class="notice" style="margin-bottom:28px">
+        <strong>{{T:Nothing on this page is a real event yet.|本頁目前沒有任何真實活動。|本页目前没有任何真实活动。}}</strong>
+        {{T:The entries below are samples. We do not publish unconfirmed exhibitions, awards or partnerships — anything not yet real is labelled as such.|以下條目為範例。我們不公佈未確認的展覽、獎項或合作關係 —— 任何尚未落實的事都會標示清楚。|以下条目为示例。我们不公布未确认的展览、奖项或合作关系 —— 任何尚未落实的事都会标示清楚。|รายการด้านล่างเป็นตัวอย่าง เราไม่เผยแพร่นิทรรศการ รางวัล หรือความร่วมมือที่ยังไม่ยืนยัน สิ่งใดที่ยังไม่เกิดขึ้นจริงจะระบุไว้ชัดเจน|以下はサンプルです。未確定の展示会・受賞・協業は公表しません。まだ実現していないことは、そのように明記します。}}
+      </div>
+      {{NEWS_FILTER}}
+      <div id="news-list">{{NEWS_LIST}}</div>
+    </div>
+  </section>
+
+  <section class="section section--tight">
+    <div class="wrap">
+      <div class="grid grid-2" style="gap:clamp(24px,4vw,52px)">
+        <div>
+          <h2 class="h3" style="margin-bottom:14px">{{T:Press & media enquiries|媒體洽詢|媒体咨询}}</h2>
+          <p class="muted" style="margin-bottom:18px">{{T:For interviews, imagery or comment.|採訪、圖片或評論需求。|采访、图片或评论需求。}}</p>
+          {{MEDIA_FORM}}
+        </div>
+        <div>
+          <h2 class="h3" style="margin-bottom:14px">{{T:Host an exhibition|舉辦展覽|举办展览}}</h2>
+          <p class="muted" style="margin-bottom:18px">{{T:Malls, museums, conventions and pop-ups. The six guardians work as a walk-through installation as well as a screen.|商場、博物館、展會與快閃店。六位守護者既能上螢幕，也能做成可以走進去參觀的裝置。|商场、博物馆、展会与快闪店。六位守护者既能上屏幕，也能做成可以走进去参观的装置。}}</p>
+          <div class="btn-row"><a class="btn" href="contact.html">{{T:Contact the events team|聯絡活動團隊|联系活动团队}}</a></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- The six guardians: this page had no character art, so a visitor could
+       read the whole thing without seeing the IP. -->
+  <section class="section section--tight">
+    <div class="wrap">
+      <p class="eyebrow">{{T:The six|六位守護者|六位守护者|ผู้พิทักษ์ทั้งหก|六人の守護者}}</p>
+      <h2 class="h3" style="margin-bottom:16px">{{T:Who this is about|這是關於誰|这是关于谁|นี่คือเรื่องของใคร|これは誰の話か}}</h2>
+      {{CHARACTER_STRIP}}
+    </div>
+  </section>
+
+</main>

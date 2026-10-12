@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>raster derivative check</title>
+<style>
+  body { margin:0; background:#14161c; color:#fff; font:11px system-ui, sans-serif; }
+  h2 { font-size:11px; letter-spacing:.18em; text-transform:uppercase; color:#9aa3b8; margin:14px 12px 6px; }
+  .row { display:flex; gap:12px; align-items:flex-start; padding:0 12px; flex-wrap:wrap; }
+  .cell { text-align:center; }
+  .cell img { display:block; background:#0b0d12; border:1px solid #333; }
+  .cap { margin-top:4px; color:#cbd3e6; }
+  .mag { background:#ff00ff !important; }
+</style>
+</head>
+<body>
+<h2>OG cards (1200x630) — these are what social scrapers will show</h2>
+<div class="row" id="og"></div>
+<h2>Colouring page derived from the real art (black on white)</h2>
+<div class="row" id="line"></div>
+<h2>Wallpapers: desktop 1920x1080 and phone 1080x1920</h2>
+<div class="row" id="wall"></div>
+<script>
+document.getElementById('og').innerHTML = ['furi-prince','pinki','bubi'].map(function(s){
+  return '<div class="cell"><img src="../assets/img/og/'+s+'.png" style="width:340px"><div class="cap">og/'+s+'.png</div></div>';
+}).join('') + '<div class="cell"><img src="../assets/img/og/default.png" style="width:340px"><div class="cap">og/default.png</div></div>';
+
+document.getElementById('line').innerHTML = ['furi-prince','pinki','winggo','fluffu','boxo','bubi'].map(function(s){
+  return '<div class="cell" style="background:#fff"><img src="../assets/img/ip-line/'+s+'.png" style="width:110px"><div class="cap" style="color:#333">'+s+'</div></div>';
+}).join('');
+
+document.getElementById('wall').innerHTML =
+  '<div class="cell"><img src="../assets/img/wallpaper/bubi-desktop.png" style="width:380px"><div class="cap">bubi-desktop</div></div>' +
+  '<div class="cell"><img src="../assets/img/wallpaper/pinki-phone.png" style="width:150px"><div class="cap">pinki-phone</div></div>';
+</script>
+</body>
+</html>

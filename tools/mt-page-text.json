@@ -1,0 +1,529 @@
+{
+  "_note": "Machine-translated Thai and Japanese for text that was authored in English, Traditional Chinese and Simplified Chinese only. Read tools/build.js for how this is consumed and check.js for the gate. The key is the exact English payload: if the English changes, the key misses and the string is reported as untranslated rather than silently shipping English. Fill in batches with `FM_MT_REPORT=1 node tools/build.js`, which writes tools/mt-page-text.missing.json grouped by page.",
+  "_batches": [
+    "done: index.html (homepage) — 44 strings",
+    "next: visitor pages — licensing, stories, furi-planet, contact, furi-lab, characters, collections, creator, collaborations, news, 404",
+    "last: legal pages — privacy, terms, ai-content-notice"
+  ],
+  "runs": {
+    "All news and events": { "th": "ข่าวและกิจกรรมทั้งหมด", "ja": "ニュースとイベントをすべて見る" },
+    "All stories": { "th": "เรื่องราวทั้งหมด", "ja": "すべての物語" },
+    "An official character IP world. Six guardians survived the collapse of FURI PLANET, and each of them is still holding the last of something.": {
+      "th": "โลกตัวละคร IP อย่างเป็นทางการ ผู้พิทักษ์หกตนรอดจากการล่มสลายของ FURI PLANET และแต่ละคนยังคงถือสิ่งสุดท้ายบางอย่างไว้",
+      "ja": "公式キャラクターIPの世界。FURI PLANET の崩壊を生きのびた6人の守護者が、それぞれ「最後の何か」を今も抱えています。"
+    },
+    "Anger can destroy a world, or become the power that protects one.": {
+      "th": "ความโกรธทำลายโลกได้ หรือจะกลายเป็นพลังที่ปกป้องโลกก็ได้",
+      "ja": "怒りは世界を壊すことも、世界を守る力になることもある。"
+    },
+    "Anger is energy.": { "th": "ความโกรธคือพลังงาน", "ja": "怒りはエネルギー。" },
+    "Collaborations": { "th": "ความร่วมมือ", "ja": "コラボレーション" },
+    "Each of them is holding the last of something — memory, a heartbeat, light, a seed, material, feeling. None of them can do it alone.": {
+      "th": "แต่ละคนถือสิ่งสุดท้ายไว้ — ความทรงจำ เสียงหัวใจ แสง เมล็ดพันธุ์ วัตถุ ความรู้สึก ไม่มีใครทำได้คนเดียว",
+      "ja": "それぞれが「最後の何か」を抱えています — 記憶、鼓動、光、種、素材、感情。誰ひとり、ひとりではできない。"
+    },
+    "Enter FURI Planet": { "th": "เข้าสู่ FURI PLANET", "ja": "FURI PLANET へ" },
+    "Everything below is a concept direction unless it says otherwise. No product is on sale yet, and we would rather say that than show you a shop that is not real.": {
+      "th": "ทุกอย่างด้านล่างเป็นแนวคิด เว้นแต่จะระบุไว้เป็นอย่างอื่น ยังไม่มีสินค้าจำหน่าย และเราเลือกที่จะบอกอย่างนั้น ดีกว่าโชว์ร้านที่ไม่มีจริง",
+      "ja": "以下は断りのない限りすべてコンセプトです。販売中の商品はまだありません。存在しないショップを見せるより、そう言うほうを選びます。"
+    },
+    "Explore partnership": { "th": "ดูแนวทางความร่วมมือ", "ja": "パートナーシップを見る" },
+    "FURI MONSTER is built to move between industries. Every example below is a concept direction — nothing here is a confirmed partnership.": {
+      "th": "FURI MONSTER ถูกออกแบบให้ข้ามวงการได้ ทุกตัวอย่างด้านล่างเป็นแนวคิด ไม่มีสิ่งใดเป็นความร่วมมือที่ยืนยันแล้ว",
+      "ja": "FURI MONSTER は業界をまたぐために作られています。以下の例はすべてコンセプトで、確定した提携はありません。"
+    },
+    "FURI MONSTER started with a bad day and a drawing tablet.": {
+      "th": "FURI MONSTER เริ่มจากวันแย่ ๆ หนึ่งวันกับแท็บเล็ตวาดรูป",
+      "ja": "FURI MONSTER は、ある嫌な一日と1台の液タブから始まりました。"
+    },
+    "FURI PLANET": { "th": "FURI PLANET", "ja": "FURI PLANET" },
+    "Furi Collections": { "th": "คอลเลกชัน Furi", "ja": "Furi コレクション" },
+    "Furi Emotion Lab": { "th": "Furi Emotion Lab", "ja": "Furi 感情ラボ" },
+    "Furi Lab": { "th": "Furi Lab", "ja": "Furi ラボ" },
+    "Furi Philosophy": { "th": "ปรัชญาของ Furi", "ja": "Furi の哲学" },
+    "Furi Stories": { "th": "เรื่องราวของ Furi", "ja": "Furi ストーリーズ" },
+    "How do you feel today?": { "th": "วันนี้คุณรู้สึกอย่างไร?", "ja": "今日はどんな気持ち？" },
+    "Let’s create together": { "th": "มาสร้างด้วยกัน", "ja": "一緒につくりましょう" },
+    "Licensing": { "th": "การอนุญาตสิทธิ์", "ja": "ライセンス" },
+    "Licensing FURI MONSTER": { "th": "การอนุญาตสิทธิ์ FURI MONSTER", "ja": "FURI MONSTER のライセンス" },
+    "Meet the Creator": { "th": "รู้จักครีเอเตอร์", "ja": "制作者に会う" },
+    "Meet the Monsters": { "th": "รู้จักเหล่ามอนสเตอร์", "ja": "モンスターたちに会う" },
+    "Meet the Six": { "th": "รู้จักทั้งหก", "ja": "6人に会う" },
+    "Most of us are told to put anger away. That advice does not work and it does not go anywhere. FURI is five steps, in order.": {
+      "th": "พวกเราส่วนใหญ่ถูกบอกให้เก็บความโกรธไว้ คำแนะนำนั้นไม่ได้ผล และมันไม่ได้ไปไหน FURI คือห้าขั้นตอนตามลำดับ",
+      "ja": "私たちはたいてい、怒りをしまっておけと言われます。その助言は効かないし、怒りはどこにも行きません。FURI は順番のある5つのステップです。"
+    },
+    "News & Events": { "th": "ข่าวและกิจกรรม", "ja": "ニュースとイベント" },
+    "Only six remain.": { "th": "เหลืออยู่เพียงหกตน", "ja": "残ったのは6人だけ。" },
+    "Open Furi Lab": { "th": "เปิด Furi Lab", "ja": "Furi ラボを開く" },
+    "Pick the one that is closest. There is a guardian holding exactly that.": {
+      "th": "เลือกสิ่งที่ใกล้เคียงที่สุด มีผู้พิทักษ์ที่ถือสิ่งนั้นอยู่พอดี",
+      "ja": "いちばん近いものを選んでください。まさにそれを抱えている守護者がいます。"
+    },
+    "Read the full story": { "th": "อ่านเรื่องเต็ม", "ja": "物語を全部読む" },
+    "Request licensing": { "th": "ขอข้อมูลการอนุญาตสิทธิ์", "ja": "ライセンスを相談する" },
+    "Request the brand deck": { "th": "ขอ brand deck", "ja": "ブランド資料を請求する" },
+    "Scroll": { "th": "เลื่อนลง", "ja": "スクロール" },
+    "See all characters and how they connect": { "th": "ดูตัวละครทั้งหมดและความเชื่อมโยง", "ja": "全キャラクターとつながりを見る" },
+    "Six episodes are written. Animation and comics are in production — nothing below is released yet, and we will not pretend otherwise.": {
+      "th": "เขียนบทไว้หกตอนแล้ว แอนิเมชันและการ์ตูนอยู่ระหว่างผลิต ยังไม่มีอะไรด้านล่างที่เผยแพร่แล้ว และเราจะไม่แกล้งทำเป็นว่าเผยแพร่แล้ว",
+      "ja": "エピソードは6本執筆済み。アニメーションとコミックは制作中で、以下はまだ何も公開されていません。そうでないふりはしません。"
+    },
+    "Six guardians. One planet.": { "th": "ผู้พิทักษ์หกตน หนึ่งดาวเคราะห์", "ja": "6人の守護者。1つの惑星。" },
+    "The FURI Universe": { "th": "จักรวาล FURI", "ja": "FURI の世界" },
+    "The Story": { "th": "เรื่องราว", "ja": "物語" },
+    "Things to do, not just look at": { "th": "มีอะไรให้ทำ ไม่ใช่แค่ดู", "ja": "見るだけでなく、遊べる" },
+    "Turn anger into the power to protect and change.": {
+      "th": "เปลี่ยนความโกรธให้เป็นพลังที่จะปกป้องและเปลี่ยนแปลง",
+      "ja": "怒りを、守り、変えていく力に。"
+    },
+    "What is happening": { "th": "เกิดอะไรขึ้น", "ja": "いま起きていること" },
+    "Where the guardians go next": { "th": "ผู้พิทักษ์จะไปที่ไหนต่อ", "ja": "守護者たちの次に行く場所" },
+    "Why FURI was created": { "th": "ทำไม FURI ถึงถูกสร้างขึ้น", "ja": "FURI が生まれた理由" },
+
+    "404": { "th": "404", "ja": "404" },
+    "Back to home": { "th": "กลับหน้าแรก", "ja": "ホームに戻る" },
+    "Lost in the dark": { "th": "หลงอยู่ในความมืด", "ja": "暗闇で迷子" },
+    "Meet the guardians": { "th": "พบผู้พิทักษ์", "ja": "守護者たちに会う" },
+    "This page drifted off FURI PLANET. The six guardians are still where you left them.": {
+      "th": "หน้านี้หลุดลอยไปจาก FURI PLANET ผู้พิทักษ์ทั้งหกยังอยู่ที่ที่คุณทิ้งไว้",
+      "ja": "このページは FURI PLANET から離れてしまいました。6人の守護者は、あなたが置いていった場所にまだいます。"
+    },
+
+    "Home": { "th": "หน้าแรก", "ja": "ホーム" },
+    "Contact the events team": { "th": "ติดต่อทีมงานอีเวนต์", "ja": "イベント担当に連絡する" },
+    "Exhibitions, collaborations, media, releases and behind-the-scenes notes. One card format, filterable by category and year.": {
+      "th": "นิทรรศการ ความร่วมมือ สื่อ การเปิดตัว และบันทึกเบื้องหลัง การ์ดรูปแบบเดียว กรองตามหมวดหมู่และปีได้",
+      "ja": "展示、コラボレーション、メディア、リリース、舞台裏の記録。カードは1つの形式で、カテゴリーと年で絞り込めます。"
+    },
+    "For interviews, imagery or comment.": { "th": "สำหรับการสัมภาษณ์ ภาพ หรือความเห็น", "ja": "インタビュー、画像、コメントの依頼はこちら。" },
+    "Host an exhibition": { "th": "จัดนิทรรศการ", "ja": "展示を開催する" },
+    "Malls, museums, conventions and pop-ups. The six guardians work as a walk-through installation as well as a screen.": {
+      "th": "ห้างสรรพสินค้า พิพิธภัณฑ์ งานประชุม และป๊อปอัป ผู้พิทักษ์ทั้งหกใช้เป็นงานติดตั้งที่เดินชมได้ เช่นเดียวกับบนหน้าจอ",
+      "ja": "商業施設、美術館、コンベンション、ポップアップ。6人の守護者は画面だけでなく、歩いて体験するインスタレーションとしても成立します。"
+    },
+    "Nothing on this page is a real event yet.": { "th": "ยังไม่มีสิ่งใดในหน้านี้ที่เป็นอีเวนต์จริง", "ja": "このページにあるものは、まだ実際のイベントではありません。" },
+    "Press & media enquiries": { "th": "สอบถามสื่อมวลชน", "ja": "プレス・メディアのお問い合わせ" },
+
+    "Every example on this page is a concept direction, not a partnership. No partner logo appears anywhere on this site until an agreement is signed, and no brand is named as a partner or a prospect.": {
+      "th": "ทุกตัวอย่างในหน้านี้เป็นแนวคิด ไม่ใช่ความร่วมมือ จะไม่มีโลโก้พันธมิตรปรากฏที่ใดในเว็บนี้จนกว่าจะลงนาม และจะไม่มีการเอ่ยชื่อแบรนด์ว่าเป็นพันธมิตรหรือเป็นเป้าหมาย",
+      "ja": "このページの例はすべてコンセプトで、提携ではありません。契約に署名するまで、提携先のロゴはこのサイトのどこにも掲載しません。また、ブランドを提携先や見込み先として名指しすることもありません。"
+    },
+    "FURI MONSTER is designed to move between industries. The directions below are the ones the world and the philosophy actually support.": {
+      "th": "FURI MONSTER ถูกออกแบบให้ข้ามวงการได้ แนวทางด้านล่างคือสิ่งที่โลกและปรัชญาของเรารองรับจริง",
+      "ja": "FURI MONSTER は業界をまたぐように設計されています。以下の方向性は、世界観と哲学が実際に支えられるものです。"
+    },
+    "Parties we have already spoken with are not listed here, and will not be, without written permission.": {
+      "th": "คู่เจรจาที่เราเคยคุยด้วยจะไม่ถูกระบุที่นี่ และจะไม่ถูกระบุ เว้นแต่ได้รับอนุญาตเป็นลายลักษณ์อักษร",
+      "ja": "すでに協議した相手はここに記載しません。書面の許可がない限り、今後も記載しません。"
+    },
+    "Partnership opportunities": { "th": "โอกาสความร่วมมือ", "ja": "パートナーシップの機会" },
+    "Read this first.": { "th": "อ่านก่อน", "ja": "まずこれを読んでください。" },
+    "Request collaboration": { "th": "ขอความร่วมมือ", "ja": "コラボレーションを相談する" },
+    "Seven ways to work with FURI": { "th": "เจ็ดวิธีในการร่วมงานกับ FURI", "ja": "FURI と組む7つの方法" },
+    "Tell us the market, the category and what you have in mind. A named human reads these.": {
+      "th": "บอกตลาด หมวดหมู่ และสิ่งที่คุณคิดไว้ มีคนจริงที่มีชื่ออ่านข้อความเหล่านี้",
+      "ja": "市場、カテゴリー、ご構想をお知らせください。実名の担当者が読んでいます。"
+    },
+
+    "Characters": { "th": "ตัวละคร", "ja": "キャラクター" },
+    "Each of them carries one thing that could not be replaced. Each of them has a different way of failing at it. Every guardian has a full page — this is the index.": {
+      "th": "แต่ละคนถือสิ่งหนึ่งที่ไม่สามารถทดแทนได้ และแต่ละคนก็ล้มเหลวกับมันคนละแบบ ผู้พิทักษ์ทุกคนมีหน้าของตัวเอง — นี่คือดัชนี",
+      "ja": "それぞれが、代えのきかない何かを一つ抱えています。そして、それに失敗する仕方もそれぞれ違います。守護者にはそれぞれ専用ページがあります — ここはその索引です。"
+    },
+    "Eight questions, no wrong answers, one guardian.": {
+      "th": "แปดคำถาม ไม่มีคำตอบผิด ได้ผู้พิทักษ์หนึ่งคน",
+      "ja": "8つの質問、まちがいなし、たどり着くのは1人。"
+    },
+    "Friendships, tension, protection and dependency. Tap or select a guardian to see who they are tied to.": {
+      "th": "มิตรภาพ ความตึงเครียด การปกป้อง และการพึ่งพา แตะหรือเลือกผู้พิทักษ์เพื่อดูว่าเขาผูกกับใคร",
+      "ja": "友情、緊張、保護、依存。守護者をタップまたは選択すると、誰とつながっているかが見えます。"
+    },
+    "How they connect": { "th": "พวกเขาเชื่อมโยงกันอย่างไร", "ja": "つながり方" },
+    "Relationship Map": { "th": "แผนผังความสัมพันธ์", "ja": "関係マップ" },
+    "Select a guardian to see how they connect.": { "th": "เลือกผู้พิทักษ์เพื่อดูความเชื่อมโยง", "ja": "守護者を選ぶと、つながりが見えます。" },
+    "Show all": { "th": "แสดงทั้งหมด", "ja": "すべて表示" },
+    "Six guardians": { "th": "ผู้พิทักษ์หกตน", "ja": "6人の守護者" },
+    "They are not six separate posters": { "th": "พวกเขาไม่ใช่โปสเตอร์แยกกันหกใบ", "ja": "6枚の別々のポスターではありません" },
+    "Which one are you?": { "th": "คุณคือคนไหน?", "ja": "あなたはどの子？" },
+
+    "A character IP earns the right to sell things by being worth visiting first. So this page shows the plan and labels it honestly.": {
+      "th": "IP ตัวละครต้องมีค่าพอให้คนอยากมาดูก่อน จึงจะขายของได้ หน้านี้จึงแสดงแผนและติดป้ายอย่างตรงไปตรงมา",
+      "ja": "キャラクターIPは、まず訪れる価値があることで、物を売る資格を得ます。だからこのページは計画を示し、正直にラベルを貼ります。"
+    },
+    "Collaborate on a collection": { "th": "ร่วมมือทำคอลเลกชัน", "ja": "コレクションで協業する" },
+    "Collections": { "th": "คอลเลกชัน", "ja": "コレクション" },
+    "Flat fills only": { "th": "ใช้สีทึบเท่านั้น", "ja": "ベタ塗りのみ" },
+    "How the line is built": { "th": "ไลน์สินค้าถูกสร้างอย่างไร", "ja": "ラインの作り方" },
+    "Licensing information": { "th": "ข้อมูลการอนุญาตสิทธิ์", "ja": "ライセンス情報" },
+    "No gradients, no shading. Which is also why the art survives being printed on cheap material.": {
+      "th": "ไม่มีไล่สี ไม่มีเงา นี่ก็เป็นเหตุผลที่งานศิลป์ยังดูดีเมื่อพิมพ์บนวัสดุราคาถูก",
+      "ja": "グラデーションも陰影もなし。だからこそ、安い素材に印刷してもアートが持ちこたえます。"
+    },
+    "No product on this page is on sale. \"Concept\" means a design direction that has not entered production; \"Coming soon\" means it is planned. There is no shop to be disappointed by yet, and there is no fake SKU grid here either.": {
+      "th": "ไม่มีสินค้าใดในหน้านี้ที่จำหน่าย \"Concept\" หมายถึงแนวทางออกแบบที่ยังไม่เข้าสู่การผลิต \"Coming soon\" หมายถึงมีแผนไว้ ยังไม่มีร้านให้ต้องผิดหวัง และที่นี่ก็ไม่มีตาราง SKU ปลอม",
+      "ja": "このページに販売中の商品はありません。「Concept」は生産に入っていないデザイン方向、「Coming soon」は予定を意味します。がっかりするようなショップはまだありませんし、偽のSKU一覧もここにはありません。"
+    },
+    "One black outline": { "th": "เส้นขอบดำหนึ่งเส้น", "ja": "黒い輪郭ひとつ" },
+    "One outline, any size": { "th": "เส้นขอบเดียว ทุกขนาด", "ja": "1本の輪郭、どんなサイズでも" },
+
+    "Creator": { "th": "ครีเอเตอร์", "ja": "制作者" },
+    "Creator of FURI MONSTER": { "th": "ครีเอเตอร์ของ FURI MONSTER", "ja": "FURI MONSTER の制作者" },
+    "Get in touch": { "th": "ติดต่อเรา", "ja": "お問い合わせ" },
+    "Selected experience & exhibitions": { "th": "ประสบการณ์และนิทรรศการที่คัดสรร", "ja": "主な経歴と展示" },
+    "The six": { "th": "ทั้งหก", "ja": "6人" },
+    "The world": { "th": "โลก", "ja": "世界" },
+    "This is not a CV. It is the reason the six guardians look the way they do.": {
+      "th": "นี่ไม่ใช่เรซูเม่ แต่มันคือเหตุผลที่ผู้พิทักษ์ทั้งหกหน้าตาเป็นแบบนี้",
+      "ja": "これは履歴書ではありません。6人の守護者がこの姿をしている理由です。"
+    },
+    "This list stays empty until entries are confirmed for publication. No awards, shows, partners or credentials are claimed here.": {
+      "th": "รายการนี้จะว่างไว้จนกว่ารายการจะได้รับการยืนยันให้เผยแพร่ ไม่มีการอ้างรางวัล การแสดง พันธมิตร หรือคุณวุฒิใด ๆ ที่นี่",
+      "ja": "このリストは、掲載が確認できるまで空のままにします。受賞歴、展示、提携先、資格はここでは主張しません。"
+    },
+    "Why FURI exists": { "th": "ทำไม FURI ถึงมีอยู่", "ja": "FURI が存在する理由" },
+
+    "Last updated: 1 January 2026.": { "th": "อัปเดตล่าสุด: 1 มกราคม 2026", "ja": "最終更新：2026年1月1日" },
+    "Privacy Policy": { "th": "นโยบายความเป็นส่วนตัว", "ja": "プライバシーポリシー" },
+    "Terms of Use": { "th": "ข้อกำหนดการใช้งาน", "ja": "利用規約" },
+    "AI Content Notice": { "th": "ประกาศเรื่องเนื้อหา AI", "ja": "AI コンテンツについて" },
+
+    "Analytics": { "th": "การวิเคราะห์", "ja": "アクセス解析" },
+    "Analytics is off until a measurement id is configured. When enabled it runs with advertising storage denied, IP anonymisation on, and only aggregate events (which character was opened, which download was taken, which language was chosen). No personal profile is built and no data is sold.": {
+      "th": "การวิเคราะห์ปิดอยู่จนกว่าจะตั้งค่า measurement id เมื่อเปิดใช้งาน จะทำงานโดยปฏิเสธการจัดเก็บเพื่อโฆษณา เปิดการไม่ระบุตัวตนของ IP และเก็บเฉพาะเหตุการณ์แบบรวม (เปิดตัวละครใด ดาวน์โหลดอะไร เลือกภาษาใด) ไม่มีการสร้างโปรไฟล์ส่วนบุคคลและไม่มีการขายข้อมูล",
+      "ja": "アクセス解析は、測定IDが設定されるまで停止しています。有効にすると、広告目的の保存を拒否し、IP匿名化を有効にし、集計イベントのみ（どのキャラクターを開いたか、どのダウンロードを取ったか、どの言語を選んだか）を記録します。個人プロファイルは作らず、データを販売することもありません。"
+    },
+    "Ask us what we hold about you, ask us to correct it, or ask us to delete it. Use the general contact address in the footer and we will respond.": {
+      "th": "ถามเราได้ว่าเราเก็บข้อมูลอะไรเกี่ยวกับคุณ ขอให้แก้ไข หรือขอให้ลบ ใช้อีเมลติดต่อทั่วไปที่ส่วนท้ายของหน้า แล้วเราจะตอบกลับ",
+      "ja": "あなたについて当方が保有する情報の開示、訂正、削除をご請求いただけます。フッターの一般お問い合わせ先までご連絡ください。返信します。"
+    },
+    "By default, nothing that identifies you. The site is a set of static files with no cookies of its own, no login and no tracking beyond the analytics described below. Your language choice is stored in your own browser's localStorage and never sent anywhere.": {
+      "th": "โดยค่าเริ่มต้น ไม่มีสิ่งใดที่ระบุตัวคุณได้ เว็บไซต์นี้เป็นชุดไฟล์คงที่ ไม่มีคุกกี้ของตัวเอง ไม่มีระบบล็อกอิน และไม่มีการติดตามอื่นนอกเหนือจากการวิเคราะห์ที่อธิบายด้านล่าง ภาษาที่คุณเลือกเก็บไว้ใน localStorage ของเบราว์เซอร์คุณเอง และไม่ถูกส่งไปที่ใด",
+      "ja": "既定では、あなたを特定するものは何も収集しません。このサイトは静的ファイルの集合で、独自のCookieもログインもなく、以下に説明するアクセス解析以外の追跡もありません。言語の選択はお使いのブラウザのlocalStorageに保存され、どこにも送信されません。"
+    },
+    "Children": { "th": "เด็ก", "ja": "子どもについて" },
+    "Downloads": { "th": "การดาวน์โหลด", "ja": "ダウンロード" },
+    "Forms": { "th": "แบบฟอร์ม", "ja": "フォーム" },
+    "If you submit an enquiry form, the fields you fill in are sent to the FURI MONSTER team so they can reply. The site does not store form data itself; it forwards it to a form-handling service and by email.": {
+      "th": "ถ้าคุณส่งแบบฟอร์มสอบถาม ข้อมูลที่คุณกรอกจะถูกส่งให้ทีม FURI MONSTER เพื่อตอบกลับ ตัวเว็บไซต์ไม่ได้เก็บข้อมูลฟอร์มเอง แต่ส่งต่อไปยังบริการจัดการฟอร์มและทางอีเมล",
+      "ja": "お問い合わせフォームを送信すると、ご記入の内容は返信のためにFURI MONSTERのチームへ送られます。サイト自体はフォームのデータを保存せず、フォーム処理サービスとメールに転送します。"
+    },
+    "This describes what the site as built actually does. It is not legal advice — have it reviewed for your jurisdiction.": {
+      "th": "นี่อธิบายสิ่งที่เว็บไซต์ที่สร้างขึ้นนี้ทำจริง ไม่ใช่คำแนะนำทางกฎหมาย — ควรให้ผู้เชี่ยวชาญตรวจสอบตามเขตอำนาจของคุณ",
+      "ja": "これは、構築されたサイトが実際に行うことを説明したものです。法的助言ではありません。管轄区域に応じて専門家の確認を受けてください。"
+    },
+    "This site is not directed at children under 13 and does not knowingly collect their data. The colouring pages and the Emotion Test are designed to be usable without submitting anything.": {
+      "th": "เว็บไซต์นี้ไม่ได้มุ่งเป้าไปที่เด็กอายุต่ำกว่า 13 ปี และไม่เก็บข้อมูลของเด็กโดยเจตนา หน้าระบายสีและแบบทดสอบอารมณ์ออกแบบให้ใช้ได้โดยไม่ต้องส่งข้อมูลใด ๆ",
+      "ja": "このサイトは13歳未満の子どもを対象としておらず、そのデータを故意に収集しません。ぬりえと感情テストは、何も送信せずに使えるように設計しています。"
+    },
+    "What this site collects": { "th": "เว็บไซต์นี้เก็บอะไร", "ja": "このサイトが収集するもの" },
+    "Your choices": { "th": "ทางเลือกของคุณ", "ja": "あなたの選択" },
+
+    "No warranty": { "th": "ไม่มีการรับประกัน", "ja": "無保証" },
+    "Not legal advice — have it reviewed for your jurisdiction.": {
+      "th": "ไม่ใช่คำแนะนำทางกฎหมาย — ควรให้ผู้เชี่ยวชาญตรวจสอบตามเขตอำนาจของคุณ",
+      "ja": "法的助言ではありません。管轄区域に応じて専門家の確認を受けてください。"
+    },
+    "Ownership": { "th": "ความเป็นเจ้าของ", "ja": "権利の帰属" },
+    "Personal use of downloads": { "th": "การใช้ไฟล์ดาวน์โหลดส่วนตัว", "ja": "ダウンロードの私的利用" },
+    "Status of content": { "th": "สถานะของเนื้อหา", "ja": "コンテンツの位置づけ" },
+    "The FURI MONSTER name, the six guardians, the wordmark, the palette, the written character profiles and the code-drawn artwork on this site belong to FURI MONSTER and its licensors. Nothing on this site grants a licence to use them commercially.": {
+      "th": "ชื่อ FURI MONSTER ผู้พิทักษ์ทั้งหก wordmark ชุดสี โปรไฟล์ตัวละครที่เป็นลายลักษณ์อักษร และงานศิลป์ที่วาดด้วยโค้ดบนเว็บไซต์นี้ เป็นของ FURI MONSTER และผู้ให้อนุญาต ไม่มีสิ่งใดบนเว็บไซต์นี้ที่ให้สิทธิ์ใช้งานเชิงพาณิชย์",
+      "ja": "FURI MONSTERの名称、6人の守護者、ワードマーク、パレット、文章によるキャラクター設定、およびこのサイト上のコードで描かれたアートは、FURI MONSTERとそのライセンサーに帰属します。このサイト上のいかなるものも、商用利用のライセンスを許諾するものではありません。"
+    },
+    "Third-party character or brand names are referenced only for comparison or as a design reference. No affiliation, sponsorship or endorsement is claimed or implied.": {
+      "th": "ชื่อตัวละครหรือแบรนด์ของบุคคลที่สามถูกอ้างถึงเพื่อการเปรียบเทียบหรือเป็นข้อมูลอ้างอิงด้านการออกแบบเท่านั้น ไม่มีการอ้างหรือสื่อถึงความเกี่ยวข้อง การสนับสนุน หรือการรับรองใด ๆ",
+      "ja": "第三者のキャラクター名やブランド名は、比較またはデザイン上の参考としてのみ言及しています。提携、スポンサーシップ、推奨は一切主張も示唆もしていません。"
+    },
+    "Third-party names": { "th": "ชื่อของบุคคลที่สาม", "ja": "第三者の名称" },
+    "Wallpapers, stickers and colouring pages may be downloaded and used for personal, non-commercial purposes — set one as your phone background, print one for a child, post one in a personal social account. They may not be sold, used on merchandise, used in advertising, or used to train a model.": {
+      "th": "วอลเปเปอร์ สติกเกอร์ และหน้าระบายสี ดาวน์โหลดและใช้เพื่อวัตถุประสงค์ส่วนตัวที่ไม่ใช่เชิงพาณิชย์ได้ — ตั้งเป็นภาพพื้นหลังมือถือ พิมพ์ให้เด็ก หรือโพสต์ในบัญชีโซเชียลส่วนตัว ห้ามขาย ห้ามใช้บนสินค้า ห้ามใช้ในโฆษณา และห้ามใช้ฝึกโมเดล",
+      "ja": "壁紙、ステッカー、ぬりえは、個人的・非商用の目的でダウンロードして使用できます。スマホの背景に設定する、子どものために印刷する、個人のSNSアカウントに投稿する、といった使い方です。販売、グッズへの使用、広告への使用、モデルの学習への使用はできません。"
+    },
+
+    "Character profiles, story loglines and page copy were drafted with AI assistance and then edited by a human. They are labelled as fiction throughout; none of it is a factual claim about a real person, product or company. Where a figure is a placeholder, the page says so.": {
+      "th": "โปรไฟล์ตัวละคร เรื่องย่อ และข้อความบนหน้าเว็บ ร่างขึ้นโดยมี AI ช่วยแล้วมีมนุษย์ตรวจแก้ มีป้ายกำกับว่าเป็นเรื่องแต่งตลอดทั้งเว็บ ไม่มีส่วนใดเป็นการกล่าวอ้างข้อเท็จจริงเกี่ยวกับบุคคล ผลิตภัณฑ์ หรือบริษัทจริง หากตัวเลขใดเป็นค่าตัวอย่าง หน้านั้นจะระบุไว้",
+      "ja": "キャラクター設定、ストーリーのログライン、ページの文章は、AIの補助を得て下書きし、人が編集しました。サイト全体でフィクションと明示しています。実在の人物、製品、企業についての事実主張ではありません。数値が仮のものである場合は、そのページにそう書いています。"
+    },
+    "If you believe something on this site misrepresents a real person or organisation, or reproduces your work, contact us using the general address in the footer and we will act on it.": {
+      "th": "หากคุณเห็นว่าสิ่งใดบนเว็บไซต์นี้บิดเบือนบุคคลหรือองค์กรจริง หรือทำซ้ำผลงานของคุณ ติดต่อเราที่อีเมลทั่วไปในส่วนท้ายของหน้า แล้วเราจะดำเนินการ",
+      "ja": "このサイト上の何かが実在の人物や組織を誤って伝えている、あるいはあなたの作品を複製していると思われる場合は、フッターの一般お問い合わせ先までご連絡ください。対応します。"
+    },
+    "No character was designed by an image model.": {
+      "th": "ไม่มีตัวละครใดถูกออกแบบโดยโมเดลสร้างภาพ",
+      "ja": "画像モデルがキャラクターをデザインしたことはありません。"
+    },
+    "No photograph of a visitor is processed. The AI Furi Generator is not built, and will be subject to its own privacy design before it is.": {
+      "th": "ไม่มีการประมวลผลภาพถ่ายของผู้เข้าชม AI Furi Generator ยังไม่ได้สร้าง และจะต้องมีแบบแผนความเป็นส่วนตัวของตัวเองก่อนจะสร้าง",
+      "ja": "訪問者の写真は処理しません。AI Furi Generatorは未実装で、実装する前には独自のプライバシー設計を経ます。"
+    },
+    "No synthetic person, testimonial, award or partner is presented as real anywhere on this site.": {
+      "th": "ไม่มีการนำเสนอบุคคล คำรับรอง รางวัล หรือพันธมิตรที่สังเคราะห์ขึ้น ว่าเป็นของจริงที่ใดบนเว็บไซต์นี้",
+      "ja": "合成された人物、推薦の声、受賞、提携先を、実在するものとしてこのサイトのどこにも提示していません。"
+    },
+    "No third-party artwork was used to train or condition anything in this IP.": {
+      "th": "ไม่มีการใช้ศิลป์ของบุคคลที่สามเพื่อฝึกหรือกำหนดเงื่อนไขสิ่งใดใน IP นี้",
+      "ja": "このIPのいかなる部分も、第三者のアートで学習・条件付けしていません。"
+    },
+    "Report a problem": { "th": "รายงานปัญหา", "ja": "問題を報告する" },
+    "Text on this site": { "th": "ข้อความบนเว็บไซต์นี้", "ja": "このサイトの文章" },
+    "The short version": { "th": "เวอร์ชันสั้น", "ja": "ひと言でいうと" },
+    "The six guardians, their designs, their names, their personalities and the FURI PLANET world were created by a human. AI tools are used in the studio the way a ruler is used — for the repetitive parts, never for the decisions.": {
+      "th": "ผู้พิทักษ์ทั้งหก ดีไซน์ ชื่อ บุคลิก และโลก FURI PLANET ถูกสร้างโดยมนุษย์ เครื่องมือ AI ถูกใช้ในสตูดิโอเหมือนการใช้ไม้บรรทัด — ใช้กับส่วนที่ต้องทำซ้ำ ไม่ใช่กับการตัดสินใจ",
+      "ja": "6人の守護者、そのデザイン、名前、性格、そしてFURI PLANETの世界は、人が作りました。AIツールは定規のように使っています — 繰り返しの部分のために。判断のために使うことはありません。"
+    },
+    "What AI is not used for": { "th": "สิ่งที่ไม่ได้ใช้ AI", "ja": "AIを使っていないこと" },
+    "What AI is used for": { "th": "สิ่งที่ใช้ AI", "ja": "AIを使っていること" },
+
+    "A philosophy": { "th": "ปรัชญา", "ja": "ひとつの哲学" },
+    "AI Experience": { "th": "ประสบการณ์ AI", "ja": "AI体験" },
+    "AI Furi Generator": { "th": "AI Furi Generator", "ja": "AI Furi ジェネレーター" },
+    "Ability": { "th": "ความสามารถ", "ja": "能力" },
+    "All characters": { "th": "ตัวละครทั้งหมด", "ja": "すべてのキャラクター" },
+    "Already have retail channels in a market? Use this form instead — it asks for channel and territory rather than category.": {
+      "th": "มีช่องทางค้าปลีกในตลาดอยู่แล้วหรือไม่? ใช้แบบฟอร์มนี้แทน — จะถามถึงช่องทางและเขตพื้นที่ แทนที่จะถามหมวดหมู่",
+      "ja": "すでにある市場に小売チャネルをお持ちですか？その場合はこちらのフォームを。カテゴリーではなく、チャネルと地域を伺います。"
+    },
+    "Anger is energy": { "th": "ความโกรธคือพลังงาน", "ja": "怒りはエネルギー" },
+    "Anger is energy. See it, understand it, express it, release it, transform it. This is what makes the IP usable by education and wellbeing partners.": {
+      "th": "ความโกรธคือพลังงาน มองเห็น เข้าใจ แสดงออก ปล่อยวาง เปลี่ยนแปลง นี่คือสิ่งที่ทำให้ IP นี้ใช้ได้กับพันธมิตรด้านการศึกษาและสุขภาวะ",
+      "ja": "怒りはエネルギー。見る、理解する、表現する、手放す、変える。だからこのIPは、教育やウェルビーイングのパートナーにも使えます。"
+    },
+    "Anger → Power": { "th": "ความโกรธ → พลัง", "ja": "怒り → 力" },
+    "Art rules": { "th": "กฎงานศิลป์", "ja": "アートのルール" },
+    "Best friends, tension, protection. A guardian is defined as much by the others as by themselves.": {
+      "th": "เพื่อนสนิท ความตึงเครียด การปกป้อง ผู้พิทักษ์ถูกนิยามโดยคนอื่นพอ ๆ กับนิยามตัวเอง",
+      "ja": "親友、緊張、保護。守護者は自分自身と同じくらい、他の誰かによって定義されます。"
+    },
+    "Brand assets": { "th": "สินทรัพย์แบรนด์", "ja": "ブランド素材" },
+    "Brand deck & character guide": { "th": "brand deck และคู่มือตัวละคร", "ja": "ブランド資料とキャラクターガイド" },
+    "Call & deck": { "th": "นัดคุยและส่ง deck", "ja": "打ち合わせと資料" },
+    "Categories": { "th": "หมวดหมู่", "ja": "カテゴリー" },
+    "Category, territory, term, approvals.": { "th": "หมวดหมู่ เขตพื้นที่ ระยะเวลา การอนุมัติ", "ja": "カテゴリー、地域、期間、承認。" },
+    "Category, territory, term. Company details required.": { "th": "หมวดหมู่ เขตพื้นที่ ระยะเวลา ต้องระบุข้อมูลบริษัท", "ja": "カテゴリー、地域、期間。会社情報が必要です。" },
+    "Character guide": { "th": "คู่มือตัวละคร", "ja": "キャラクターガイド" },
+    "Colouring page": { "th": "หน้าระบายสี", "ja": "ぬりえ" },
+    "Coming soon": { "th": "เร็ว ๆ นี้", "ja": "近日公開" },
+    "Contact": { "th": "ติดต่อ", "ja": "お問い合わせ" },
+    "Design & launch": { "th": "ออกแบบและเปิดตัว", "ja": "デザインと立ち上げ" },
+    "Dislikes": { "th": "ไม่ชอบ", "ja": "苦手なもの" },
+    "Distribution": { "th": "การจัดจำหน่าย", "ja": "流通" },
+    "Eight questions. One of the six. There is no wrong answer, and no data leaves your browser.": {
+      "th": "แปดคำถาม ได้หนึ่งในหก ไม่มีคำตอบผิด และไม่มีข้อมูลออกจากเบราว์เซอร์ของคุณ",
+      "ja": "8つの質問。6人のうちの1人。まちがいはなく、データはブラウザの外に出ません。"
+    },
+    "Emotion": { "th": "อารมณ์", "ja": "感情" },
+    "Enquiry": { "th": "การสอบถาม", "ja": "お問い合わせ" },
+    "Enquiry types": { "th": "ประเภทการสอบถาม", "ja": "お問い合わせの種類" },
+    "Event, dates, proposal.": { "th": "งาน วันที่ ข้อเสนอ", "ja": "イベント、日程、提案。" },
+    "Events are added here as the animation and comics are released. Nothing is listed yet, because nothing is released yet.": {
+      "th": "อีเวนต์จะถูกเพิ่มที่นี่เมื่อแอนิเมชันและการ์ตูนเปิดตัว ยังไม่มีรายการใด เพราะยังไม่มีอะไรเปิดตัว",
+      "ja": "アニメーションとコミックの公開に合わせて、ここにイベントを追加します。まだ何も公開していないので、掲載はありません。"
+    },
+    "Everything on this page works right now, except the one item that says it does not. Nothing here needs an account and nothing asks for your email.": {
+      "th": "ทุกอย่างในหน้านี้ใช้ได้จริงตอนนี้ ยกเว้นรายการเดียวที่บอกว่าใช้ไม่ได้ ไม่มีสิ่งใดต้องใช้บัญชี และไม่มีสิ่งใดขออีเมลของคุณ",
+      "ja": "このページのものは、使えないと書いてある1つを除いて、いま動きます。アカウントも不要、メールアドレスも求めません。"
+    },
+    "Exhibition": { "th": "นิทรรศการ", "ja": "展示" },
+    "Exhibition enquiries": { "th": "สอบถามเรื่องนิทรรศการ", "ja": "展示のお問い合わせ" },
+    "Exhibition record": { "th": "บันทึกนิทรรศการ", "ja": "展示の実績" },
+    "FURI PLANET: abundance, extraction, collapse, six who stayed. A complete narrative spine, not a mood board.": {
+      "th": "FURI PLANET: ความอุดมสมบูรณ์ การสกัดทรัพยากร การล่มสลาย และหกคนที่อยู่ต่อ โครงเรื่องที่สมบูรณ์ ไม่ใช่แค่บอร์ดรวมอารมณ์",
+      "ja": "FURI PLANET：豊かさ、収奪、崩壊、残った6人。ムードボードではなく、完結した物語の背骨です。"
+    },
+    "Fear": { "th": "ความกลัว", "ja": "恐れ" },
+    "Five routes, because a fan, a licensee and a journalist need different things. Pick the one that fits and you will reach the right desk.": {
+      "th": "ห้าช่องทาง เพราะแฟนคลับ ผู้รับสิทธิ์ และนักข่าวต้องการคนละอย่าง เลือกช่องทางที่ตรงกับคุณ แล้วจะถึงโต๊ะที่ถูกต้อง",
+      "ja": "5つの窓口。ファン、ライセンシー、記者では必要なものが違うからです。合うものを選べば、正しい担当に届きます。"
+    },
+    "Full profile": { "th": "โปรไฟล์เต็ม", "ja": "プロフィール全文" },
+    "Furi Planet": { "th": "Furi Planet", "ja": "Furi プラネット" },
+    "Furi Prince (Memory), Pinki (Heartbeat), Winggo (Light of Nature), Fluffu (Seed), Boxo (Material Cycle), Bubi (Water & Emotion).": {
+      "th": "Furi Prince (ความทรงจำ), Pinki (เสียงหัวใจ), Winggo (แสงแห่งธรรมชาติ), Fluffu (เมล็ดพันธุ์), Boxo (วัฏจักรวัตถุ), Bubi (น้ำและอารมณ์)",
+      "ja": "Furi Prince（記憶）、Pinki（鼓動）、Winggo（自然の光）、Fluffu（種）、Boxo（素材の循環）、Bubi（水と感情）。"
+    },
+    "Gallery": { "th": "แกลเลอรี", "ja": "ギャラリー" },
+    "General": { "th": "ทั่วไป", "ja": "一般" },
+    "General enquiry": { "th": "สอบถามทั่วไป", "ja": "一般的なお問い合わせ" },
+    "Get the wallpaper": { "th": "รับวอลเปเปอร์", "ja": "壁紙を入手する" },
+    "Heartbeat": { "th": "เสียงหัวใจ", "ja": "鼓動" },
+    "Held by Boxo. Everything that was destroyed, still available to be rebuilt.": {
+      "th": "Boxo ถือไว้ ทุกสิ่งที่ถูกทำลาย ยังคงสามารถนำมาสร้างใหม่ได้",
+      "ja": "Boxoが持つ。壊されたものすべて。まだ建て直せる形で。"
+    },
+    "Held by Bubi. The last ocean, and the insistence that feelings move rather than stay.": {
+      "th": "Bubi ถือไว้ มหาสมุทรแห่งสุดท้าย และความยืนยันว่าความรู้สึกต้องเคลื่อนไป ไม่ใช่หยุดอยู่",
+      "ja": "Bubiが持つ。最後の海。そして、感情はとどまるより動くものだという主張。"
+    },
+    "Held by Fluffu. Asleep, unopened, waiting for ground worth planting in.": {
+      "th": "Fluffu ถือไว้ หลับอยู่ ยังไม่ถูกเปิด รอที่ดินที่คู่ควรจะหว่านลงไป",
+      "ja": "Fluffuが持つ。眠ったまま、開かれず、植えるに値する地面を待っている。"
+    },
+    "Held by Furi Prince. The archive of what the planet actually was, incomplete and unshared.": {
+      "th": "Furi Prince ถือไว้ คลังบันทึกของสิ่งที่ดาวเคราะห์ดวงนี้เคยเป็น ไม่สมบูรณ์และยังไม่ได้แบ่งปัน",
+      "ja": "Furi Princeが持つ。この惑星が実際に何だったかの記録。不完全で、まだ誰にも渡していない。"
+    },
+    "Held by Pinki. Literally a pulse — the proof that something here is still alive.": {
+      "th": "Pinki ถือไว้ คือชีพจรจริง ๆ — หลักฐานว่ายังมีบางสิ่งที่นี่ยังมีชีวิต",
+      "ja": "Pinkiが持つ。文字どおりの脈。ここにまだ生きているものがある証拠。"
+    },
+    "Held by Winggo. Daylight, stored in wings, spent one horizon at a time.": {
+      "th": "Winggo ถือไว้ แสงกลางวัน เก็บไว้ในปีก ใช้ไปทีละขอบฟ้า",
+      "ja": "Winggoが持つ。昼の光。翼に蓄え、地平線ひとつぶんずつ使う。"
+    },
+    "How it works": { "th": "ขั้นตอนการทำงาน", "ja": "進め方" },
+    "IP snapshot": { "th": "ภาพรวม IP", "ja": "IPの概要" },
+    "Identity": { "th": "อัตลักษณ์", "ja": "アイデンティティ" },
+    "Instagram, Facebook, Threads and Xiaohongshu are linked in the footer and the menu.": {
+      "th": "Instagram, Facebook, Threads และ Xiaohongshu มีลิงก์อยู่ในส่วนท้ายของหน้าและในเมนู",
+      "ja": "Instagram、Facebook、Threads、小紅書はフッターとメニューにリンクがあります。"
+    },
+    "Interactive assets": { "th": "สื่อเชิงโต้ตอบ", "ja": "インタラクティブ素材" },
+    "Light of Nature": { "th": "แสงแห่งธรรมชาติ", "ja": "自然の光" },
+    "Likes": { "th": "ชอบ", "ja": "好きなもの" },
+    "Logo & wordmark": { "th": "โลโก้และ wordmark", "ja": "ロゴとワードマーク" },
+    "Market, channel, territory.": { "th": "ตลาด ช่องทาง เขตพื้นที่", "ja": "市場、チャネル、地域。" },
+    "Material Cycle": { "th": "วัฏจักรวัตถุ", "ja": "素材の循環" },
+    "Media": { "th": "สื่อ", "ja": "メディア" },
+    "Meet the six": { "th": "รู้จักทั้งหก", "ja": "6人に会う" },
+    "Memory": { "th": "ความทรงจำ", "ja": "記憶" },
+    "Mission": { "th": "ภารกิจ", "ja": "使命" },
+    "One form, three outcomes: licensing, distribution or brand collaboration. Tell us which in the type field.": {
+      "th": "แบบฟอร์มเดียว สามผลลัพธ์: การอนุญาตสิทธิ์ การจัดจำหน่าย หรือความร่วมมือแบรนด์ บอกเราในช่องประเภท",
+      "ja": "1つのフォームで3つの結果：ライセンス、流通、ブランドコラボレーション。種類の欄でお知らせください。"
+    },
+    "One world": { "th": "หนึ่งโลก", "ja": "ひとつの世界" },
+    "Open the distribution form": { "th": "เปิดแบบฟอร์มการจัดจำหน่าย", "ja": "流通のフォームを開く" },
+    "Open the licensing form": { "th": "เปิดแบบฟอร์มการอนุญาตสิทธิ์", "ja": "ライセンスのフォームを開く" },
+    "Origin": { "th": "ที่มา", "ja": "出自" },
+    "Origin story": { "th": "เรื่องราวที่มา", "ja": "出自の物語" },
+    "Other routes": { "th": "ช่องทางอื่น", "ja": "その他の窓口" },
+    "Outlet, request, deadline.": { "th": "สื่อ คำขอ กำหนดส่ง", "ja": "媒体、依頼内容、締め切り。" },
+    "Palette": { "th": "ชุดสี", "ja": "パレット" },
+    "Palette specification": { "th": "ข้อกำหนดชุดสี", "ja": "パレット仕様" },
+    "Personality": { "th": "บุคลิกภาพ", "ja": "性格" },
+    "Personality Quiz": { "th": "แบบทดสอบบุคลิก", "ja": "性格診断" },
+    "Phase 2": { "th": "ระยะที่ 2", "ja": "フェーズ2" },
+    "Power": { "th": "พลัง", "ja": "力" },
+    "Press & media": { "th": "สื่อมวลชน", "ja": "プレス・メディア" },
+    "Press enquiries": { "th": "สอบถามสื่อมวลชน", "ja": "プレスからのお問い合わせ" },
+    "Product categories": { "th": "หมวดหมู่สินค้า", "ja": "商品カテゴリー" },
+    "Profile": { "th": "โปรไฟล์", "ja": "プロフィール" },
+    "Read the character pages": { "th": "อ่านหน้าตัวละคร", "ja": "キャラクターページを読む" },
+    "Relationships": { "th": "ความสัมพันธ์", "ja": "関係" },
+    "Request licensing information": { "th": "ขอข้อมูลการอนุญาตสิทธิ์", "ja": "ライセンス情報を請求する" },
+    "Role": { "th": "บทบาท", "ja": "役割" },
+    "Say something": { "th": "ส่งข้อความถึงเรา", "ja": "メッセージを送る" },
+    "Seed": { "th": "เมล็ดพันธุ์", "ja": "種" },
+    "Send a message": { "th": "ส่งข้อความ", "ja": "メッセージを送信" },
+    "Send market, category and intent.": { "th": "ส่งตลาด หมวดหมู่ และความตั้งใจ", "ja": "市場、カテゴリー、ご意向をお送りください。" },
+    "Signature moment": { "th": "ช่วงเวลาสำคัญ", "ja": "象徴的な場面" },
+    "Six characters, one coherent world, and a message a partner can actually use: anger can destroy a world, or become the power that protects one.": {
+      "th": "ตัวละครหกตัว หนึ่งโลกที่สอดคล้องกัน และข้อความที่พันธมิตรใช้ได้จริง: ความโกรธทำลายโลกได้ หรือจะกลายเป็นพลังที่ปกป้องโลกก็ได้",
+      "ja": "6人のキャラクター、一貫した1つの世界、そしてパートナーが実際に使えるメッセージ。怒りは世界を壊すことも、世界を守る力になることもある。"
+    },
+    "Six episodes are written. Animation and comics are in production. Nothing below is released yet — every card says so, because we would rather be honest than look busy.": {
+      "th": "เขียนบทไว้หกตอนแล้ว แอนิเมชันและการ์ตูนอยู่ระหว่างผลิต ยังไม่มีอะไรด้านล่างที่เผยแพร่แล้ว — ทุกการ์ดบอกไว้ เพราะเราเลือกที่จะซื่อสัตย์ ดีกว่าดูยุ่ง",
+      "ja": "エピソードは6本執筆済み。アニメーションとコミックは制作中。以下はまだ何も公開していません — どのカードにもそう書いてあります。忙しそうに見せるより、正直でいたいからです。"
+    },
+    "Six posters are not a world. These are the friendships, the arguments and the dependencies that make the six a group.": {
+      "th": "โปสเตอร์หกใบไม่ใช่โลก ทั้งหมดนี้คือมิตรภาพ การโต้เถียง และการพึ่งพากัน ที่ทำให้ทั้งหกเป็นกลุ่มเดียวกัน",
+      "ja": "ポスター6枚では世界になりません。ここにあるのは、6人をひとつの集まりにしている友情と、口論と、依存です。"
+    },
+    "Six things that could not be replaced": { "th": "หกสิ่งที่ไม่สามารถทดแทนได้", "ja": "代えのきかない6つ" },
+    "Social": { "th": "โซเชียล", "ja": "SNS" },
+    "Status: not yet published. Requests are queued rather than answered instantly.": {
+      "th": "สถานะ: ยังไม่เผยแพร่ คำขอจะถูกจัดคิว ไม่ได้ตอบทันที",
+      "ja": "状況：未公開。ご依頼は順番待ちとなり、すぐには回答できません。"
+    },
+    "Sticker PNG": { "th": "สติกเกอร์ PNG", "ja": "ステッカー PNG" },
+    "Stories": { "th": "เรื่องราว", "ja": "物語" },
+    "Stories with Boxo": { "th": "เรื่องราวกับ Boxo", "ja": "Boxo の物語" },
+    "Stories with Bubi": { "th": "เรื่องราวกับ Bubi", "ja": "Bubi の物語" },
+    "Stories with Fluffu": { "th": "เรื่องราวกับ Fluffu", "ja": "Fluffu の物語" },
+    "Stories with Furi Prince": { "th": "เรื่องราวกับ Furi Prince", "ja": "Furi Prince の物語" },
+    "Stories with Pinki": { "th": "เรื่องราวกับ Pinki", "ja": "Pinki の物語" },
+    "Stories with Winggo": { "th": "เรื่องราวกับ Winggo", "ja": "Winggo の物語" },
+    "Story type is by format: mini animation, comic, original story, Furi Daily, exhibition story. Every episode carries the guardians it belongs to, and the character pages link back here.": {
+      "th": "ประเภทเรื่องแบ่งตามรูปแบบ: แอนิเมชันสั้น การ์ตูน เรื่องต้นฉบับ Furi Daily เรื่องในนิทรรศการ ทุกตอนระบุผู้พิทักษ์ที่เกี่ยวข้อง และหน้าตัวละครมีลิงก์กลับมาที่นี่",
+      "ja": "種別は形式ごとです。ミニアニメ、コミック、オリジナルストーリー、Furi Daily、展示ストーリー。各エピソードは関わる守護者を表示し、キャラクターページからここに戻れます。"
+    },
+    "Symbol": { "th": "สัญลักษณ์", "ja": "シンボル" },
+    "Take them with you": { "th": "พกพวกเขาไปด้วย", "ja": "一緒に持ち歩く" },
+    "Target audience": { "th": "กลุ่มเป้าหมาย", "ja": "想定オーディエンス" },
+    "Terms": { "th": "เงื่อนไข", "ja": "期間" },
+    "Territories": { "th": "เขตพื้นที่", "ja": "地域" },
+    "Territory availability is not published yet. Tell us your market and we will confirm in writing. We would rather say nothing than claim a territory we cannot actually serve.": {
+      "th": "ยังไม่ประกาศเขตพื้นที่ที่พร้อมให้บริการ บอกตลาดของคุณมา แล้วเราจะยืนยันเป็นลายลักษณ์อักษร เราเลือกที่จะไม่พูดอะไร ดีกว่าอ้างเขตพื้นที่ที่เราให้บริการไม่ได้จริง",
+      "ja": "提供可能な地域はまだ公表していません。市場をお知らせいただければ、書面で確認します。実際に提供できない地域を主張するより、何も言わないほうを選びます。"
+    },
+    "The World": { "th": "โลก", "ja": "世界" },
+    "The deck is being finalised. Request it and you will receive it when it is ready — with the character guide, the palette specification and the art rules the brand is held to.": {
+      "th": "deck กำลังสรุปขั้นสุดท้าย ขอไว้ได้ แล้วคุณจะได้รับเมื่อพร้อม — พร้อมคู่มือตัวละคร ข้อกำหนดชุดสี และกฎงานศิลป์ที่แบรนด์ยึดถือ",
+      "ja": "資料は最終調整中です。ご請求いただければ、準備でき次第お送りします — キャラクターガイド、パレット仕様、ブランドが守るアートのルールとともに。"
+    },
+    "The world they live in": { "th": "โลกที่พวกเขาอยู่", "ja": "彼らが生きる世界" },
+    "Their stories": { "th": "เรื่องราวของพวกเขา", "ja": "彼らの物語" },
+    "Things to do": { "th": "สิ่งที่น่าลอง", "ja": "遊べるもの" },
+    "This is the part of FURI that is not merchandise. Whatever else the six guardians are, they are a method for dealing with the emotion people are most often told to hide.": {
+      "th": "นี่คือส่วนของ FURI ที่ไม่ใช่สินค้า ไม่ว่าผู้พิทักษ์ทั้งหกจะเป็นอะไร พวกเขาคือวิธีจัดการกับอารมณ์ที่ผู้คนมักถูกบอกให้ซ่อน",
+      "ja": "ここはFURIの、物販ではない部分です。6人の守護者が何であれ、彼らは「隠せと言われがちな感情」の扱い方です。"
+    },
+    "This page is the whole world in seven parts. Read it top to bottom, or jump to the part you need.": {
+      "th": "หน้านี้คือทั้งโลกในเจ็ดส่วน อ่านจากบนลงล่าง หรือกระโดดไปยังส่วนที่คุณต้องการ",
+      "ja": "このページは、世界のすべてを7つの部分で示したものです。上から順に読むか、必要な部分へ飛んでください。"
+    },
+    "This section is intentionally empty rather than filled with invented dates.": {
+      "th": "ส่วนนี้ตั้งใจเว้นว่างไว้ ดีกว่าเติมวันที่ที่แต่งขึ้น",
+      "ja": "この部分は、でっち上げた日程で埋めるのではなく、意図的に空けています。"
+    },
+    "Three languages": { "th": "สามภาษา", "ja": "3つの言語" },
+    "Timeline": { "th": "ไทม์ไลน์", "ja": "タイムライン" },
+    "Upload a photo and meet your Furi version. This is deliberately not built yet: generating a character from someone's face needs a separate privacy design, a retention policy and a clear statement about what happens to the image. We will not ship it as a weekend feature.": {
+      "th": "อัปโหลดภาพแล้วพบเวอร์ชัน Furi ของคุณ สิ่งนี้ตั้งใจยังไม่สร้าง: การสร้างตัวละครจากใบหน้าของคนต้องมีแบบแผนความเป็นส่วนตัวแยก นโยบายการเก็บรักษา และคำชี้แจงชัดเจนว่าภาพจะเกิดอะไรขึ้น เราจะไม่ปล่อยเป็นฟีเจอร์ทำเสาร์อาทิตย์",
+      "ja": "写真をアップロードして、あなたのFuri版に会う。これは意図的に未実装です。人の顔からキャラクターを生成するには、別立てのプライバシー設計、保持ポリシー、画像がどうなるかの明示が必要です。週末で作った機能として出すつもりはありません。"
+    },
+    "Wallpaper 16:9": { "th": "วอลเปเปอร์ 16:9", "ja": "壁紙 16:9" },
+    "Wallpaper 9:16": { "th": "วอลเปเปอร์ 9:16", "ja": "壁紙 9:16" },
+    "Wallpapers, Stickers & Colouring": { "th": "วอลเปเปอร์ สติกเกอร์ และหน้าระบายสี", "ja": "壁紙・ステッカー・ぬりえ" },
+    "Water & Emotion": { "th": "น้ำและอารมณ์", "ja": "水と感情" },
+    "We confirm fit and share the deck under NDA if needed.": {
+      "th": "เราจะยืนยันความเหมาะสมและส่ง deck ให้ภายใต้ NDA หากจำเป็น",
+      "ja": "適合性を確認し、必要であればNDAのうえで資料をお渡しします。"
+    },
+    "We supply source-accurate artwork in the house style.": {
+      "th": "เราจัดหางานศิลป์ที่ตรงตามต้นฉบับในสไตล์ของแบรนด์",
+      "ja": "ハウススタイルで、原画に忠実なアートを提供します。"
+    },
+    "When the evacuation was called, six did not board. Each of them took one thing and has been carrying it since.": {
+      "th": "เมื่อมีการเรียกอพยพ หกคนไม่ได้ขึ้นยาน แต่ละคนหยิบสิ่งหนึ่งไป และแบกมันมาตั้งแต่นั้น",
+      "ja": "避難が告げられたとき、6人は乗らなかった。それぞれが一つだけ持ち、それ以来ずっと運んでいる。"
+    },
+    "Which guardian are you?": { "th": "คุณคือผู้พิทักษ์คนไหน?", "ja": "あなたはどの守護者？" },
+    "Who they are tied to": { "th": "พวกเขาผูกกับใคร", "ja": "誰とつながっているか" },
+    "Who this is for": { "th": "เหมาะกับใคร", "ja": "誰のためのものか" },
+
+    "Become a distributor": { "th": "เป็นผู้จัดจำหน่าย", "ja": "流通パートナーになる" },
+    "Budget range (optional)": { "th": "ช่วงงบประมาณ (ไม่บังคับ)", "ja": "予算レンジ（任意）" },
+    "Category": { "th": "หมวดหมู่", "ja": "カテゴリー" },
+    "Channel": { "th": "ช่องทาง", "ja": "チャネル" },
+    "Company": { "th": "บริษัท", "ja": "会社名" },
+    "Email": { "th": "อีเมล", "ja": "メールアドレス" },
+    "Enquiry type": { "th": "ประเภทการสอบถาม", "ja": "お問い合わせの種類" },
+    "I agree that FURI MONSTER may contact me about this enquiry.": {
+      "th": "ฉันยินยอมให้ FURI MONSTER ติดต่อกลับเกี่ยวกับการสอบถามนี้",
+      "ja": "このお問い合わせについて、FURI MONSTER からの連絡に同意します。"
+    },
+    "Market": { "th": "ตลาด", "ja": "市場" },
+    "Message": { "th": "ข้อความ", "ja": "メッセージ" },
+    "Name": { "th": "ชื่อ", "ja": "お名前" },
+    "Outlet": { "th": "สื่อ", "ja": "媒体" },
+    "Request": { "th": "คำขอ", "ja": "依頼内容" },
+    "Send": { "th": "ส่ง", "ja": "送信" },
+    "Territory": { "th": "เขตพื้นที่", "ja": "地域" },
+    "The brand deck is being finalised. Request it and we will send it when ready.": {
+      "th": "ไฟล์แนะนำแบรนด์กำลังจัดทำอยู่ ขอไว้ได้ แล้วเราจะส่งให้เมื่อพร้อม",
+      "ja": "ブランド資料は現在準備中です。ご請求いただければ、でき次第お送りします。"
+    }
+  }
+}
