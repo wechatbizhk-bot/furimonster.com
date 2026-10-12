@@ -61,7 +61,12 @@
     }
     this.hit = hit;
 
+    function pokeAudio() {
+      if (NS.Audio && NS.Audio.resume) NS.Audio.resume();
+    }
+
     var down = function (e) {
+      pokeAudio();
       var p = toCanvas(e);
       self.pointer.x = p.x; self.pointer.y = p.y;
       self.pointer.down = true; self.pointer.inside = true;
@@ -96,6 +101,7 @@
     };
 
     root.addEventListener('keydown', function (e) {
+      pokeAudio();
       var c = e.code || e.key;
       if (!self.keys[c]) { self.pressed[c] = true; self.anyPress = true; self.lastPressCode = c; }
       self.keys[c] = true;

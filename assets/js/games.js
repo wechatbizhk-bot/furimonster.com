@@ -63,6 +63,123 @@
   }
 
   /* ===================================================================== *
+   * shared sound for the browser games
+   *
+   * Synthesised, like the claw cabinet: nothing to 404, and nothing plays
+   * until the first tap or key (autoplay policy). Default is on. M toggles
+   * it, and the choice stays on this device. Visual reduced-motion is
+   * handled by each game separately and is left alone here.
+   * ===================================================================== */
+  var SFX_KEY = 'fm.games.muted';
+  var sfxState = { ctx: null, master: null, muted: false };
+
+  function sfxStoredMuted() {
+    var s = store();
+    return !!(s && s.getItem(SFX_KEY) === '1');
+  }
+  function sfxIsMuted() { return sfxState.muted || sfxStoredMuted(); }
+  function paintSfxButtons() {
+    $$('.fm-sfx').forEach(function (b) {
+      var muted = sfxIsMuted();
+      b.textContent = muted ? 'MUTED' : 'SOUND';
+      b.setAttribute('aria-pressed', muted ? 'true' : 'false');
+    });
+  }
+  function sfxSetMuted(on) {
+    sfxState.muted = !!on;
+    var s = store();
+    try { if (s) s.setItem(SFX_KEY, on ? '1' : '0'); } catch (e) {}
+    paintSfxButtons();
+  }
+  function sfxUnlock() {
+    var AC = root.AudioContext || root.webkitAudioContext;
+    if (!AC) return null;
+    if (!sfxState.ctx) {
+      try { sfxState.ctx = new AC(); } catch (e) { return null; }
+      sfxState.master = sfxState.ctx.createGain();
+      sfxState.master.gain.value = 0.8;
+      sfxState.master.connect(sfxState.ctx.destination);
+    }
+    if (sfxState.ctx.state === 'suspended') {
+      try { sfxState.ctx.resume(); } catch (e) {}
+    }
+    return sfxState.ctx;
+  }
+  function sfxTone(freq, dur, type, gain, when) {
+    var ctx = sfxState.ctx;
+    if (!ctx || sfxIsMuted()) return;
+    var t0 = when === undefined ? ctx.currentTime : when;
+    var o = ctx.createOscillator();
+    o.type = type || 'square';
+    o.frequency.setValueAtTime(freq, t0);
+    var g = ctx.createGain();
+    g.gain.setValueAtTime(0.0001, t0);
+    g.gain.exponentialRampToValueAtTime(gain || 0.12, t0 + 0.01);
+    g.gain.exponentialRampToValueAtTime(0.0001, t0 + dur);
+    o.connect(g); g.connect(sfxState.master);
+    o.start(t0); o.stop(t0 + dur + 0.02);
+  }
+  function sfxPlay(name) {
+    sfxUnlock();
+    var ctx = sfxState.ctx;
+    /* Schedule even while the context is still flipping from suspended to
+     * running. The resume() in this same gesture is what makes it audible;
+     * bailing out here drops the very sound the tap was supposed to unlock. */
+    if (!ctx || sfxIsMuted()) return;
+    var t = ctx.currentTime;
+    if (name === 'start' || name === 'ok') {
+      sfxTone(523, 0.08, 'square', 0.1, t);
+      sfxTone(784, 0.12, 'square', 0.09, t + 0.07);
+    } else if (name === 'no') {
+      sfxTone(196, 0.14, 'square', 0.1, t);
+      sfxTone(146, 0.16, 'triangle', 0.08, t + 0.09);
+    } else if (name === 'tick') {
+      sfxTone(880, 0.04, 'square', 0.06, t);
+    } else {
+      sfxTone(660, 0.05, 'square', 0.08, t);
+    }
+  }
+  function sfxToggle() {
+    if (sfxIsMuted()) {
+      sfxSetMuted(false);
+      sfxUnlock();
+      sfxPlay('tick');
+    } else {
+      sfxPlay('tick');
+      sfxSetMuted(true);
+    }
+  }
+  /* After Start, the instructions panel collapses and the board jumps up.
+   * A fixed header then covers the top row, so taps and swipes hit the nav
+   * instead of a tile. Pull the play panel just clear of that header. */
+  function revealBelowHeader(node) {
+    if (!node || !node.getBoundingClientRect) return;
+    var header = doc.querySelector('.site-header');
+    var h = 0;
+    if (header) {
+      var hs = header.getBoundingClientRect();
+      if (hs.height > 0 && hs.bottom > 0) h = hs.bottom;
+    }
+    var top = node.getBoundingClientRect().top;
+    if (top < h + 8) {
+      var y = (root.scrollY || root.pageYOffset || 0) + top - h - 12;
+      try { root.scrollTo(0, Math.max(0, y)); } catch (e) {}
+    }
+  }
+
+  function mountSfx(host) {
+    if (!host || host.querySelector('.fm-sfx')) return;
+    var b = doc.createElement('button');
+    b.type = 'button';
+    b.className = 'btn btn--ghost btn--sm fm-sfx';
+    b.setAttribute('aria-label', 'Sound');
+    b.addEventListener('click', function () { sfxUnlock(); sfxToggle(); });
+    host.insertBefore(b, host.firstChild);
+    host.addEventListener('pointerdown', function () { sfxUnlock(); }, { passive: true });
+    paintSfxButtons();
+  }
+
+  /* ===================================================================== *
    * 1. best scores
    * ===================================================================== */
   function store() {
@@ -301,6 +418,7 @@
       el.answer.removeAttribute('hidden');
 
       if (ok) {
+        sfxPlay('ok');
         st.streak++;
         st.correct++;
         var gain = (reduced ? TOP : worth(p)) +
@@ -309,6 +427,7 @@
         el.msg.textContent = t('game.correct') + ' · +' + gain;
         el.msg.className = 'gg-msg is-ok';
       } else {
+        sfxPlay('no');
         st.streak = 0;
         el.msg.textContent = t('game.wrong');
         el.msg.className = 'gg-msg is-no';
@@ -355,11 +474,14 @@
     }
 
     function startRun() {
+      sfxUnlock();
+      sfxPlay('start');
       st.round = 0; st.score = 0; st.streak = 0; st.correct = 0; st.last = null;
       el.start.setAttribute('hidden', '');
       el.end.setAttribute('hidden', '');
       el.board.removeAttribute('hidden');
       track('game_start', { label: 'guess' });
+      revealBelowHeader(el.board);
       nextRound();
     }
 
@@ -692,6 +814,7 @@
         swapIn(st.board, a, d);
         paint();
         msg(t('game.noMatch'));
+        sfxPlay('no');
         return Promise.resolve(false);
       }
       st.busy = true;
@@ -699,6 +822,7 @@
       st.moves--;
       hud();
       paint();
+      sfxPlay('ok');
       return settle().then(function () {
         if (!anyMove(st.board)) {
           st.board = freshBoard();
@@ -734,6 +858,8 @@
     }
 
     function startRun() {
+      sfxUnlock();
+      sfxPlay('start');
       if (st.timer) { root.clearTimeout(st.timer); st.timer = 0; }
       st.board = freshBoard();
       st.sel = null; st.cursor = px(0, 0);
@@ -747,6 +873,7 @@
       hud();
       msg('');
       track('game_start', { label: 'match' });
+      revealBelowHeader(el.wrap);
       try { el.grid.focus({ preventScroll: true }); } catch (e) {}
     }
 
@@ -774,16 +901,20 @@
     }
 
     el.grid.addEventListener('click', function (e) {
+      if (ignoreClick) { ignoreClick = false; return; }
+      sfxUnlock();
       var cell = e.target.closest && e.target.closest('.mm-cell');
       if (!cell) return;
       tap(px(parseInt(cell.getAttribute('data-r'), 10), parseInt(cell.getAttribute('data-c'), 10)));
     });
 
-    /* pointer/touch: the click event covers tap on both. A horizontal drag
-     * swaps too; a vertical drag is left alone so the page still scrolls
-     * normally when a finger passes over the board. */
+    /* A tap is the click handler. A drag past 26px swaps with the neighbour
+     * in that direction (both axes). The board sets touch-action: none, so
+     * the page scrolls from outside the grid. */
     var touchStart = null;
+    var ignoreClick = false;
     el.grid.addEventListener('touchstart', function (e) {
+      sfxUnlock();
       var cell = e.target.closest && e.target.closest('.mm-cell');
       if (!cell || !e.touches || !e.touches.length) { touchStart = null; return; }
       touchStart = {
@@ -797,10 +928,17 @@
       var t1 = e.changedTouches && e.changedTouches[0];
       if (!t1) return;
       var dx = t1.clientX - t0.x, dy = t1.clientY - t0.y;
-      if (Math.abs(dx) < 26 || Math.abs(dx) <= Math.abs(dy)) return;  /* tap, or a vertical scroll */
+      if (Math.abs(dx) < 26 && Math.abs(dy) < 26) return; /* a tap: the click handler swaps */
       var n = neighbours(t0.i);
-      var dir = dx > 0 ? n.right : n.left;
-      if (dir >= 0 && !st.busy) { st.sel = null; st.cursor = t0.i; trySwap(t0.i, dir); }
+      var dir = Math.abs(dx) >= Math.abs(dy)
+        ? (dx > 0 ? n.right : n.left)
+        : (dy > 0 ? n.down : n.up);
+      if (dir >= 0 && !st.busy) {
+        ignoreClick = true;
+        st.sel = null;
+        st.cursor = t0.i;
+        trySwap(t0.i, dir);
+      }
     }, { passive: true });
 
     el.grid.addEventListener('keydown', function (e) {
@@ -991,6 +1129,7 @@
       var b = cardEls[i];
       if (!b || b.getAttribute('data-done') === '1') return;
       if (st.up.indexOf(i) !== -1) return;           /* already face up */
+      sfxPlay('tick');
       st.up.push(i);
       paint();
       if (st.up.length < 2) return;
@@ -1000,6 +1139,7 @@
       if (st.deck[a].face.key === st.deck[c].face.key) {
         st.matched++;
         st.score += ME_PER_MATCH;
+        sfxPlay('ok');
         cardEls[a].setAttribute('data-done', '1');
         cardEls[c].setAttribute('data-done', '1');
         st.up = [];
@@ -1011,6 +1151,7 @@
       }
 
       st.score = Math.max(0, st.score - ME_PER_MISS);
+      sfxPlay('no');
       hud();
       msg(t('game.notPaired') + ' · −' + ME_PER_MISS);
       st.busy = true;
@@ -1041,6 +1182,8 @@
     }
 
     function startRun() {
+      sfxUnlock();
+      sfxPlay('start');
       if (st.timer) { root.clearTimeout(st.timer); st.timer = 0; }
       st.up = []; st.matched = 0; st.turns = 0; st.score = 0;
       st.busy = false; st.wasBest = false; st.cursor = 0;
@@ -1052,12 +1195,14 @@
       hud();
       msg('');
       track('game_start', { label: 'memory' });
+      revealBelowHeader(el.wrap);
       var first = cardEls[0];
       if (first) { try { first.focus({ preventScroll: true }); } catch (e) {} }
       st.cursor = 0;
     }
 
     el.grid.addEventListener('click', function (e) {
+      sfxUnlock();
       var b = e.target.closest && e.target.closest('.me-card');
       if (!b) return;
       turn(parseInt(b.getAttribute('data-i'), 10));
@@ -1116,10 +1261,24 @@
    * boot
    * ===================================================================== */
   function boot() {
+    sfxState.muted = sfxStoredMuted();
     renderBestSlots();
     createGuess();
     createMatch();
     createMemory();
+    mountSfx($('#gg'));
+    mountSfx($('#mm'));
+    mountSfx($('#me'));
+    doc.addEventListener('keydown', function (e) {
+      if (e.key !== 'm' && e.key !== 'M') return;
+      if (e.metaKey || e.ctrlKey || e.altKey) return;
+      var tag = e.target && e.target.tagName;
+      if (tag === 'INPUT' || tag === 'TEXTAREA' || tag === 'SELECT') return;
+      if (!$('#gg') && !$('#mm') && !$('#me')) return;
+      e.preventDefault();
+      sfxUnlock();
+      sfxToggle();
+    });
   }
 
   if (doc.readyState === 'loading') {

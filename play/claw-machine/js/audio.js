@@ -15,7 +15,6 @@
   var motor = null, motorGain = null, motorTarget = 0;
   var musicTimer = null, musicStep = 0;
   var enabledSfx = true, enabledMusic = true;
-  var started = false;
 
   function now() { return ctx ? ctx.currentTime : 0; }
 
@@ -51,10 +50,23 @@
     return ctx;
   }
 
+  /* Must be called from a user-gesture handler. Autoplay policies keep a
+   * context suspended until then, and a resume() scheduled on a later frame
+   * does not count. Music waits until the context is actually running so the
+   * sequencer does not pile notes onto a frozen clock. */
   function resume() {
     init();
-    if (ctx && ctx.state === 'suspended') { try { ctx.resume(); } catch (e) {} }
-    if (ctx && enabledMusic && !started) { started = true; startMusic(); }
+    if (!ctx) return null;
+    var pending = null;
+    if (ctx.state === 'suspended') {
+      try { pending = ctx.resume(); } catch (e) { pending = null; }
+    }
+    var arm = function () {
+      if (ctx && ctx.state === 'running' && enabledMusic) startMusic();
+    };
+    if (ctx.state === 'running') arm();
+    else if (pending && typeof pending.then === 'function') pending.then(arm).catch(function () {});
+    return pending;
   }
 
   /* ---- primitives -------------------------------------------------------- */
@@ -174,6 +186,9 @@
     if (!enabledSfx) return;
     if (!ctx) init();
     if (!ctx) return;
+    if (ctx.state === 'suspended') {
+      try { ctx.resume(); } catch (e) {}
+    }
     var fn = SFX[name];
     if (fn) fn(opt);
   }
@@ -244,7 +259,7 @@
   }
 
   function startMusic() {
-    if (!enabledMusic || musicTimer || !ctx) return;
+    if (!enabledMusic || musicTimer || !ctx || ctx.state !== 'running') return;
     musicGain.gain.setTargetAtTime(0.55, ctx.currentTime, 1.2);
     musicTimer = setInterval(tickMusic, 145);        // ~103 BPM in sixteenths
   }

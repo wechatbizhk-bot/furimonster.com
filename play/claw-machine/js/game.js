@@ -250,19 +250,56 @@
     return out;
   };
 
+  Game.prototype.enterPlay = function (machineId) {
+    if (NS.Audio) NS.Audio.play('click');
+    this.openMachine(machineId || (CAT.MACHINES[this.sel] && CAT.MACHINES[this.sel].id) || CAT.MACHINES[0].id);
+    this.goto('play');
+  };
+
   Game.prototype.updateTitle = function (dt, inp) {
-    this.drainClicks(inp);
     if (!inp) return;
-    if (inp.hitOnce('KeyL')) return this.toggleLang();
-    if (inp.hitOnce('KeyM')) { this.player.sfx = !this.player.sfx; if (NS.Audio) NS.Audio.sound(this.player.sfx); return; }
-    if (inp.hitOnce('Enter') || inp.hitOnce('Space') || inp.hitOnce('NumpadEnter')) {
-      if (NS.Audio) NS.Audio.play('click');
-      this.goto('floor');
+    if (inp.hitOnce('KeyL')) { inp.clicks.length = 0; return this.toggleLang(); }
+    if (inp.hitOnce('KeyM')) {
+      inp.clicks.length = 0;
+      this.player.sfx = !this.player.sfx;
+      if (NS.Audio) NS.Audio.sound(this.player.sfx);
+      return;
+    }
+    /* The drawn INSERT COIN control is canvas, not a DOM button. A tap
+     * anywhere on this screen has to count, or a phone never gets past it. */
+    if (inp.hitOnce('Enter') || inp.hitOnce('Space') || inp.hitOnce('NumpadEnter') || inp.clicks.length) {
+      inp.clicks.length = 0;
+      this.enterPlay();
     }
   };
 
+  function floorCardRects() {
+    var list = CAT.MACHINES;
+    var cw = 236, gap = 16, top = 110, ch = 470;
+    var totalW = list.length * cw + (list.length - 1) * gap;
+    var x0 = (C.GAME_W - totalW) / 2;
+    var out = [];
+    for (var i = 0; i < list.length; i++) {
+      out.push({ i: i, x: x0 + i * (cw + gap), y: top - 8, w: cw, h: ch + 16 });
+    }
+    return out;
+  }
+
   Game.prototype.updateFloor = function (dt, inp) {
     var n = CAT.MACHINES.length;
+    if (inp && inp.clicks.length) {
+      var cards = floorCardRects();
+      var p = inp.clicks[0];
+      for (var ci = 0; ci < cards.length; ci++) {
+        var r = cards[ci];
+        if (p.x >= r.x && p.x <= r.x + r.w && p.y >= r.y && p.y <= r.y + r.h) {
+          this.sel = r.i;
+          inp.clicks.length = 0;
+          this.enterPlay(CAT.MACHINES[r.i].id);
+          return;
+        }
+      }
+    }
     this.drainClicks(inp);
     if (!inp) return;
     if (inp.hitOnce('ArrowLeft') || inp.hitOnce('KeyA')) { this.sel = (this.sel + n - 1) % n; NS.Audio.play('move'); }
@@ -279,9 +316,7 @@
     }
     if (inp.hitOnce('Escape')) { return this.goto('title'); }
     if (inp.hitOnce('Enter') || inp.hitOnce('Space') || inp.hitOnce('NumpadEnter')) {
-      if (NS.Audio) NS.Audio.play('click');
-      this.openMachine(CAT.MACHINES[this.sel].id);
-      this.goto('play');
+      this.enterPlay(CAT.MACHINES[this.sel].id);
     }
   };
 
@@ -459,9 +494,27 @@
   };
 
   Game.prototype.updatePause = function (dt, inp) {
-    this.drainClicks(inp);
     if (!inp) return;
     var items = this.pauseItems();
+    /* Pause rows are drawn, not DOM. Hit-test them before drainClicks so a
+     * tap cannot also fall through onto the cabinet's drop button. */
+    if (inp.clicks.length) {
+      var w = 460, h = 420;
+      var x = (C.GAME_W - w) / 2, y = (C.GAME_H - h) / 2;
+      var p = inp.clicks[0];
+      var hit = -1;
+      for (var i = 0; i < items.length; i++) {
+        var rx = x + 50, ry = y + 92 + i * 54, rw = w - 100, rh = 44;
+        if (p.x >= rx && p.x <= rx + rw && p.y >= ry && p.y <= ry + rh) hit = i;
+      }
+      inp.clicks.length = 0;
+      if (hit >= 0) {
+        this.pauseSel = hit;
+        if (NS.Audio) NS.Audio.play('click');
+        this.doPauseItem(items[hit].id);
+        return;
+      }
+    }
     if (inp.hitOnce('ArrowUp') || inp.hitOnce('KeyW')) { this.pauseSel = (this.pauseSel + items.length - 1) % items.length; NS.Audio.play('move'); }
     if (inp.hitOnce('ArrowDown') || inp.hitOnce('KeyS')) { this.pauseSel = (this.pauseSel + 1) % items.length; NS.Audio.play('move'); }
     if (inp.hitOnce('Enter') || inp.hitOnce('Space') || inp.hitOnce('NumpadEnter')) {
@@ -595,6 +648,10 @@
     }
     var game = new Game(canvas, { input: inp, lang: opts.lang, storage: opts.storage, fresh: opts.fresh, machine: opts.machine });
     if (inp) game.input = inp;
+    /* INSERT COIN should land in a cabinet, not on a second title that only
+     * a keyboard can leave. Callers that want the title pass screen:'title'. */
+    if (opts.screen) game.screen = opts.screen;
+    else if (opts.machine) game.screen = 'play';
 
     if (!opts.manual && root.requestAnimationFrame) {
       var loop = function (ms) {
