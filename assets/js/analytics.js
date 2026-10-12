@@ -14,6 +14,10 @@
 
   var FM = root.FM = root.FM || {};
   var cfg = (FM.config && FM.config.analytics) || { ga4: '', debug: false };
+  /* Shared placeholder: window.__GA_MEASUREMENT_ID wins if set (non-empty G- id). */
+  if (root.__GA_MEASUREMENT_ID && String(root.__GA_MEASUREMENT_ID).trim()) {
+    cfg = { ga4: String(root.__GA_MEASUREMENT_ID).trim(), debug: !!cfg.debug };
+  }
   var queue = [];
 
   function loadGa4(id) {

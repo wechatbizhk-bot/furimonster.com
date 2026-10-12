@@ -1324,6 +1324,10 @@
   function getLocale() { return current; }
 
   function detect() {
+    try {
+      var q = new URLSearchParams(root.location.search).get('lang');
+      if (q && DICT[q]) return q;
+    } catch (e) {}
     var stored = null;
     try { stored = root.localStorage.getItem('fm.locale'); } catch (e) {}
     if (stored && DICT[stored]) return stored;

@@ -1194,13 +1194,12 @@ function shell(meta, body) {
   const canon = (CFG.url || '') + '/' + (canonPath === 'index.html' ? '' : canonPath);
   const og = meta.og || (CFG.url + CFG.seo.ogImage);
   const title = meta.title + ' — FURI MONSTER';
-  /* No hreflang alternates. All five languages live on this one URL and switch
-   * client-side, so there are no per-language URLs to point at. The previous
-   * markup emitted five alternates, four of which (/{lang}/…) returned 404 —
-   * worse than no hreflang at all, because search engines report them as broken
-   * alternates. The languages are declared honestly instead: <html lang> plus
-   * inLanguage in the page's JSON-LD. */
-  const alternates = '';
+  /* hreflang uses ?lang= query variants (en, zh-Hant, zh-Hans, th, ja).
+   * The runtime honors ?lang= via i18n.detect(). */
+  const _hl = ['en','zh-Hant','zh-Hans','th','ja'];
+  const alternates = _hl.map(function (l) {
+    return '  <link rel="alternate" hreflang="' + l + '" href="' + canon + (canon.indexOf('?') >= 0 ? '&' : '?') + 'lang=' + encodeURIComponent(l) + '">';
+  }).join('\n') + '\n  <link rel="alternate" hreflang="x-default" href="' + canon + '">';
 
   return `<!DOCTYPE html>
 <html lang="en" data-locale="en" data-root="${root}">

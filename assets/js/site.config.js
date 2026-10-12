@@ -130,7 +130,9 @@
      * measurement id is set. See assets/js/analytics.js.
      * ------------------------------------------------------------------ */
     analytics: {
-      ga4: '',                                      // NEEDS-CONFIRM, e.g. G-XXXXXXXXXX
+      /* Paste real GA4 id here OR set window.__GA_MEASUREMENT_ID before analytics.js loads.
+       * Leave empty — do not invent a fake G- id. */
+      ga4: '',                                      // e.g. G-XXXXXXXXXX
       debug: false
     },
 
