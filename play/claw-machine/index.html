@@ -3,6 +3,10 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+<!-- Vercel cleanUrls serves this directory as /play/claw-machine (no trailing
+     slash). Without a base, js/ and img/ resolve to /play/js and the cabinet
+     boots with no scripts — INSERT COIN throws and audio never starts. -->
+<base href="/play/claw-machine/">
 <meta name="description" content="FURI MONSTER 夾公仔機 — the official claw machine. Six guardians, honest friction, fun and realistic modes. Playable on desktop and on a phone.">
 <meta name="theme-color" content="#04050a">
 <title>FURI MONSTER — 夾公仔機 | Claw Machine</title>
@@ -63,7 +67,7 @@
      short or wide viewports, which `100vh` rules get wrong inside a pane. */
   #wrap {
     position: fixed; inset: 0;
-    display: flex; align-items: center; justify-content: center;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
     padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
     background: radial-gradient(120% 90% at 50% 0%, #2E7C82 0%, #14383C 55%, #08191C 100%);
   }
@@ -133,11 +137,9 @@
   #boot .stats { font-size: 11px; color: #6f83a8; font-family: ui-monospace, Consolas, monospace; min-height: 14px; }
 
   /* ---- rotate prompt --------------------------------------------------- *
-   * A 16:9 cabinet on a portrait phone is about 390x219 CSS px, which puts the
-   * joystick and the red button at roughly 30px. That is not a game, so in
-   * portrait we ask the visitor to turn the phone instead of shipping a
-   * technically-working but unplayable screen. `force-play` is set by the
-   * "play anyway" button for anyone who wants to try. */
+   * Kept as a fallback when the finger bar cannot be shown. Phones with a
+   * coarse pointer (or a narrow window) get .touch-ui instead, so portrait
+   * play is the normal path and this overlay stays hidden. */
   #rotate {
     position: fixed; inset: 0; z-index: 40; display: none;
     flex-direction: column; align-items: center; justify-content: center;
@@ -145,8 +147,10 @@
     background: radial-gradient(120% 90% at 50% 0%, #2E7C82 0%, #14383C 55%, #08191C 100%);
     color: #ffe9b0;
   }
+  /* Phones get a real joystick under the cabinet (.touch-ui), so the old
+     full-screen rotate gate is only a fallback when that bar is unavailable. */
   @media (orientation: portrait) and (max-width: 900px) {
-    html:not(.force-play) #rotate { display: flex; }
+    html:not(.force-play):not(.touch-ui) #rotate { display: flex; }
   }
   #rotate .phone {
     width: 62px; height: 104px; border: 4px solid #ffd166; border-radius: 12px;
@@ -171,6 +175,55 @@
     box-shadow: 0 6px 0 #8a2f0d;
   }
   #rotate button.ghost { color: #ffe9b0; background: rgba(255,255,255,.06); box-shadow: 0 6px 0 rgba(0,0,0,.45), inset 0 0 0 1px rgba(255,220,150,.35); }
+
+  /* Finger-sized controls. The canvas joystick scales with the 16:9 stage and
+     collapses to ~30px on a phone; these stay in CSS pixels. On the splash the
+     bar is one full-width INSERT COIN. Once play starts it becomes a stick,
+     a mute button, and a COIN/DROP button. */
+  #touch {
+    display: none; flex: 0 0 auto; width: 100%; box-sizing: border-box;
+    min-height: 112px; padding: 8px 18px calc(10px + env(safe-area-inset-bottom));
+    gap: 14px; align-items: center; justify-content: space-between;
+    background: rgba(4, 5, 10, .94);
+    box-shadow: 0 -10px 28px rgba(0,0,0,.4);
+    z-index: 20; touch-action: none;
+  }
+  /* Shown as soon as a coarse/narrow pointer is detected, including on the
+     splash, so the first tap is a real finger target and not the scaled title. */
+  html.touch-ui #touch { display: flex; }
+  html.touch-ui:not(.is-playing) #touchStick,
+  html.touch-ui:not(.is-playing) #touchMute { display: none; }
+  html.touch-ui:not(.is-playing) #touchDrop {
+    width: 100%; max-width: 420px; height: 64px; margin: 0 auto;
+    border-radius: 14px; font-size: 18px; letter-spacing: .08em;
+  }
+  .touch-stick {
+    position: relative; width: 112px; height: 112px; flex: 0 0 auto;
+    border-radius: 50%; touch-action: none;
+    background: radial-gradient(circle at 50% 40%, #3a4560, #141a26);
+    border: 2px solid rgba(150,190,240,.35);
+  }
+  .touch-stick .knob {
+    position: absolute; left: 50%; top: 50%; width: 48px; height: 48px;
+    margin: -24px 0 0 -24px; border-radius: 50%;
+    background: radial-gradient(circle at 35% 30%, #fff, #8ea0c0 60%, #3d4760);
+    pointer-events: none;
+  }
+  #touchDrop {
+    width: 96px; height: 96px; flex: 0 0 auto; border-radius: 50%; border: 0;
+    font: inherit; font-weight: 900; letter-spacing: .04em; font-size: 15px;
+    color: #2a1c02; touch-action: none; cursor: pointer;
+    background: radial-gradient(circle at 35% 30%, #fff3c8, #ffc23d 55%, #a06a10);
+    box-shadow: 0 6px 0 #6a4a08;
+  }
+  #touchDrop.is-drop { color: #2a0a06; background: radial-gradient(circle at 35% 30%, #ffb4a8, #ef4b3f 55%, #8f1f18); box-shadow: 0 6px 0 #6a120e; }
+  #touchDrop:active { transform: translateY(3px); }
+  #touchMute {
+    min-width: 64px; min-height: 48px; padding: 8px 12px; border-radius: 10px;
+    font: inherit; font-weight: 800; letter-spacing: .08em; font-size: 13px;
+    color: #ffe9b0; cursor: pointer; touch-action: manipulation;
+    background: rgba(255,255,255,.06); border: 1px solid rgba(255,220,150,.35);
+  }
 </style>
 </head>
 <body>
@@ -211,6 +264,11 @@
       </div>
     </div>
   </div>
+  <div id="touch">
+    <div class="touch-stick" id="touchStick" role="group" aria-label="Move the claw"><div class="knob"></div></div>
+    <button type="button" id="touchMute" aria-pressed="false">SOUND</button>
+    <button type="button" id="touchDrop">COIN</button>
+  </div>
 </div>
 
 <script src="js/constants.js"></script>
@@ -244,9 +302,19 @@
      the element's measured box rather than viewport units.  This is what keeps
      the whole picture visible when the page is embedded in a pane whose height
      is not the window height. */
+  var touchBar = document.getElementById('touch');
+
+  function touchBarHeight() {
+    if (!touchBar) return 0;
+    if (getComputedStyle(touchBar).display === 'none') return 0;
+    return touchBar.offsetHeight || 0;
+  }
+
   function fitStage() {
+    var bar = touchBarHeight();
     var availW = wrap.clientWidth || window.innerWidth || GAME_W;
-    var availH = wrap.clientHeight || window.innerHeight || GAME_H;
+    var availH = (wrap.clientHeight || window.innerHeight || GAME_H) - bar;
+    if (availH < 80) availH = 80;
     var scale = Math.min(availW / GAME_W, availH / GAME_H);
     if (!isFinite(scale) || scale <= 0) scale = 1;
     var w = Math.min(availW, Math.max(32, Math.floor(GAME_W * scale)));
@@ -307,10 +375,26 @@
 
   var starting = false;
 
+  function showBootError(msg) {
+    bootSub.innerHTML = '<span style="color:#ff9a9a">' + String(msg) + '</span>';
+  }
+
   function begin() {
     if (starting || window.__CM_GAME) return;
+    if (!window.CM || !CM.bootGame || !CM.Audio || !CM.CAT || !CM.CAT.MACHINES || !CM.CAT.MACHINES.length) {
+      showBootError('GAME FILES FAILED TO LOAD. The cabinet scripts did not start — reload this page.');
+      return;
+    }
     starting = true;
-    CM.Audio.resume();
+    try {
+      /* In the click/tap that asked to play, so autoplay policy unlocks here. */
+      CM.Audio.resume();
+      CM.Audio.play('click');
+    } catch (err) {
+      starting = false;
+      showBootError(err && err.message || err);
+      return;
+    }
 
     /* Load the real character art before the first frame, so the pile never
        appears as fallback drawings and then switches. If a sprite fails we
@@ -341,9 +425,13 @@
         bootSub.textContent = 'REALISTIC CRANE SIMULATION · 6 MONSTERS · 3 CABINETS';
       }
       try {
+        document.documentElement.classList.add('is-playing');
         fitStage();
-        window.__CM_GAME = CM.bootGame(canvas, { lang: 'zh' });
+        window.__CM_GAME = CM.bootGame(canvas, { lang: 'zh', machine: CM.CAT.MACHINES[0].id });
+        syncTouchLabel();
       } catch (err) {
+        starting = false;
+        document.documentElement.classList.remove('is-playing');
         boot.innerHTML = '<div id="bootScale"><p class="err-title">ERROR</p><p style="font-family:monospace;color:#ff9a9a">' +
           String(err && err.message || err) + '</p></div>';
         throw err;
@@ -361,14 +449,129 @@
   btn.addEventListener('click', begin);
   fsBtn.addEventListener('click', function () { begin(); goFullscreen(); });
 
-  /* the portrait screen's two buttons */
+  /* the portrait screen's two buttons — both have to unlock audio and start */
   var rotGo = document.getElementById('rotateGo');
   var rotAnyway = document.getElementById('rotateAnyway');
-  if (rotGo) rotGo.addEventListener('click', function () { goFullscreen(); });
+  if (rotGo) rotGo.addEventListener('click', function () {
+    document.documentElement.classList.add('force-play');
+    begin();
+    goFullscreen();
+  });
   if (rotAnyway) rotAnyway.addEventListener('click', function () {
     document.documentElement.classList.add('force-play');
+    begin();
     fitStage();
   });
+
+  /* ---- finger controls -------------------------------------------------- */
+  function syncTouchMode() {
+    var coarse = false, narrow = false;
+    try {
+      coarse = !!(window.matchMedia && window.matchMedia('(pointer: coarse)').matches);
+      narrow = !!(window.matchMedia && window.matchMedia('(max-width: 900px)').matches);
+    } catch (e) {}
+    document.documentElement.classList.toggle('touch-ui', coarse || narrow);
+  }
+  function syncTouchLabel() {
+    var drop = document.getElementById('touchDrop');
+    var mute = document.getElementById('touchMute');
+    var g = window.__CM_GAME;
+    if (drop) {
+      if (!g) {
+        drop.textContent = 'INSERT COIN';
+        drop.classList.remove('is-drop');
+      } else {
+        var phase = g.machine && g.machine.phase;
+        var ready = !phase || phase === 'ready';
+        var result = g.machine && g.machine.result;
+        drop.textContent = (ready || result) ? 'COIN' : 'DROP';
+        drop.classList.toggle('is-drop', !(ready || result));
+      }
+    }
+    if (mute && g && g.player) {
+      var on = !!(g.player.sfx || g.player.music);
+      mute.textContent = on ? 'SOUND' : 'MUTED';
+      mute.setAttribute('aria-pressed', on ? 'false' : 'true');
+    }
+  }
+  function clawInput() {
+    return window.__CM_GAME && window.__CM_GAME.input;
+  }
+  var stickEl = document.getElementById('touchStick');
+  var knob = stickEl && stickEl.querySelector('.knob');
+  var stickPointer = null;
+  function moveStick(e) {
+    if (window.CM && CM.Audio) CM.Audio.resume();
+    var inp = clawInput();
+    if (!inp || !stickEl) return;
+    var r = stickEl.getBoundingClientRect();
+    var max = r.width / 2;
+    var dx = e.clientX - (r.left + r.width / 2);
+    var dy = e.clientY - (r.top + r.height / 2);
+    var len = Math.sqrt(dx * dx + dy * dy);
+    if (len > max && len > 0) { dx = dx / len * max; dy = dy / len * max; }
+    inp.stick.x = max ? dx / max : 0;
+    inp.stick.y = max ? dy / max : 0;
+    if (knob) knob.style.transform = 'translate(' + dx + 'px,' + dy + 'px)';
+  }
+  function releaseStick(e) {
+    if (e && stickPointer !== null && e.pointerId !== undefined && e.pointerId !== stickPointer) return;
+    stickPointer = null;
+    var inp = clawInput();
+    if (inp) { inp.stick.x = 0; inp.stick.y = 0; }
+    if (knob) knob.style.transform = '';
+  }
+  if (stickEl) {
+    stickEl.addEventListener('pointerdown', function (e) {
+      if (e.preventDefault) e.preventDefault();
+      stickPointer = e.pointerId;
+      try { stickEl.setPointerCapture(e.pointerId); } catch (err) {}
+      moveStick(e);
+    });
+    stickEl.addEventListener('pointermove', function (e) {
+      if (stickPointer === null) return;
+      if (e.pointerId !== undefined && e.pointerId !== stickPointer) return;
+      if (e.preventDefault) e.preventDefault();
+      moveStick(e);
+    });
+    stickEl.addEventListener('pointerup', releaseStick);
+    stickEl.addEventListener('pointercancel', releaseStick);
+    window.addEventListener('pointermove', function (e) {
+      if (stickPointer === null) return;
+      if (e.pointerId !== undefined && e.pointerId !== stickPointer) return;
+      moveStick(e);
+    });
+    window.addEventListener('pointerup', releaseStick);
+    window.addEventListener('pointercancel', releaseStick);
+  }
+  var touchDrop = document.getElementById('touchDrop');
+  if (touchDrop) {
+    touchDrop.addEventListener('pointerdown', function (e) {
+      if (e.preventDefault) e.preventDefault();
+      if (window.CM && CM.Audio) CM.Audio.resume();
+      var inp = clawInput();
+      if (!inp) { begin(); return; }
+      inp.pressed.Space = true;
+      inp.anyPress = true;
+    });
+  }
+  var touchMute = document.getElementById('touchMute');
+  if (touchMute) {
+    touchMute.addEventListener('click', function () {
+      if (window.CM && CM.Audio) CM.Audio.resume();
+      var g = window.__CM_GAME;
+      if (!g || !g.player || !window.CM || !CM.Audio) return;
+      var on = !(g.player.sfx || g.player.music);
+      g.player.sfx = on;
+      g.player.music = on;
+      CM.Audio.sound(on);
+      CM.Audio.music(on);
+      if (on) CM.Audio.play('click');
+      try { g.save(); } catch (err) {}
+      syncTouchLabel();
+    });
+  }
+  syncTouchMode();
 
   window.addEventListener('keydown', function (e) {
     if (e.code === 'F11' || e.code === 'F4') {
@@ -380,7 +583,12 @@
     if (e.code === 'Enter' || e.code === 'Space') begin();
   });
 
-  function refit() { fitStage(); if (window.__CM_FIT_EXTRA) window.__CM_FIT_EXTRA(); }
+  function refit() { syncTouchMode(); fitStage(); syncTouchLabel(); if (window.__CM_FIT_EXTRA) window.__CM_FIT_EXTRA(); }
+  /* the coin/drop label tracks the cabinet phase; cheap enough at one check a frame */
+  (function watchTouch() {
+    syncTouchLabel();
+    window.requestAnimationFrame(watchTouch);
+  })();
   window.addEventListener('resize', refit);
   window.addEventListener('orientationchange', function () { setTimeout(refit, 150); });
   if (window.visualViewport) window.visualViewport.addEventListener('resize', refit);
